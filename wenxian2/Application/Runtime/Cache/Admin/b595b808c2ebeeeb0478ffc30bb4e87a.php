@@ -5,7 +5,7 @@
 		<title>后台管理</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<!-- basic styles -->
-		<link href="/wenxian2/Public/assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link href="/wenxianchufang/wenxian2/Public/assets/css/bootstrap.min.css" rel="stylesheet" />
 		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
 
 		<!--[if IE 7]>
@@ -17,9 +17,9 @@
 		<!-- fonts -->
 		<!-- ace styles -->
 
-		<link rel="stylesheet" href="/wenxian2/Public/assets/css/ace.min.css" />
-		<link rel="stylesheet" href="/wenxian2/Public/assets/css/ace-rtl.min.css" />
-		<link rel="stylesheet" href="/wenxian2/Public/assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="/wenxianchufang/wenxian2/Public/assets/css/ace.min.css" />
+		<link rel="stylesheet" href="/wenxianchufang/wenxian2/Public/assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="/wenxianchufang/wenxian2/Public/assets/css/ace-skins.min.css" />
 
 		<!--[if lte IE 8]>
 		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
@@ -29,7 +29,7 @@
 
 		<!-- ace settings handler -->
 
-		<script src="/wenxian2/Public/assets/js/ace-extra.min.js"></script>
+		<script src="/wenxianchufang/wenxian2/Public/assets/js/ace-extra.min.js"></script>
 
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 
@@ -61,7 +61,7 @@
 
 						<li class="light-blue">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="/wenxian2/Public/assets/avatars/user.jpg" alt="Jason's Photo" />
+								<img class="nav-user-photo" src="/wenxianchufang/wenxian2/Public/assets/avatars/user.jpg" alt="Jason's Photo" />
 								<span class="user-info">
 									<small>欢迎光临,</small>
 									ADMIN
@@ -378,7 +378,7 @@
 
 		<!--[if !IE]> -->
 
-		<script src="/wenxian2/Public/assets/js/jquery-2.0.3.min.js"></script>
+		<script src="/wenxianchufang/wenxian2/Public/assets/js/jquery-2.0.3.min.js"></script>
 
 		<!-- <![endif]-->
 
@@ -389,7 +389,7 @@
 		<!--[if !IE]> -->
 
 		<script type="text/javascript">
-			window.jQuery || document.write("<script src='/wenxian2/Public/assets/js/jquery-2.0.3.min.js'>"+"<"+"script>");
+			window.jQuery || document.write("<script src='/wenxianchufang/wenxian2/Public/assets/js/jquery-2.0.3.min.js'>"+"<"+"script>");
 		</script>
 
 		<!-- <![endif]-->
@@ -401,10 +401,10 @@
 <![endif]-->
 
 		<script type="text/javascript">
-			if("ontouchend" in document) document.write("<script src='/wenxian2/Public/assets/js/jquery.mobile.custom.min.js'>"+"<"+"script>");
+			if("ontouchend" in document) document.write("<script src='/wenxianchufang/wenxian2/Public/assets/js/jquery.mobile.custom.min.js'>"+"<"+"script>");
 		</script>
-		<script src="/wenxian2/Public/assets/js/bootstrap.min.js"></script>
-		<script src="/wenxian2/Public/assets/js/typeahead-bs2.min.js"></script>
+		<script src="/wenxianchufang/wenxian2/Public/assets/js/bootstrap.min.js"></script>
+		<script src="/wenxianchufang/wenxian2/Public/assets/js/typeahead-bs2.min.js"></script>
 
 		<!-- page specific plugin scripts -->
 
@@ -412,19 +412,19 @@
 		  <script src="assets/js/excanvas.min.js"></script>
 		<![endif]-->
 
-		<script src="/wenxian2/Public/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
-		<script src="/wenxian2/Public/assets/js/jquery.ui.touch-punch.min.js"></script>
-		<script src="/wenxian2/Public/as/wenxian2/Public/ets/js/jquery.slimscroll.min.js"></script>
-		<script src="/wenxian2/Public/assets/js/jquery.easy-pie-chart.min.js"></script>
-		<script src="/wenxian2/Public/assets/js/jquery.sparkline.min.js"></script>
-		<script src="/wenxian2/Public/assets/js/flot/jquery.flot.min.js"></script>
-		<script src="/wenxian2/Public/assets/js/flot/jquery.flot.pie.min.js"></script>
-		<script src="/wenxian2/Public/assets/js/flot/jquery.flot.resize.min.js"></script>
+		<script src="/wenxianchufang/wenxian2/Public/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+		<script src="/wenxianchufang/wenxian2/Public/assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="/wenxianchufang/wenxian2/Public/as/wenxianchufang/wenxian2/Public/ets/js/jquery.slimscroll.min.js"></script>
+		<script src="/wenxianchufang/wenxian2/Public/assets/js/jquery.easy-pie-chart.min.js"></script>
+		<script src="/wenxianchufang/wenxian2/Public/assets/js/jquery.sparkline.min.js"></script>
+		<script src="/wenxianchufang/wenxian2/Public/assets/js/flot/jquery.flot.min.js"></script>
+		<script src="/wenxianchufang/wenxian2/Public/assets/js/flot/jquery.flot.pie.min.js"></script>
+		<script src="/wenxianchufang/wenxian2/Public/assets/js/flot/jquery.flot.resize.min.js"></script>
 
 		<!-- ace scripts -->
 
-		<script src="/wenxian2/Public/assets/js/ace-elements.min.js"></script>
-		<script src="/wenxian2/Public/assets/js/ace.min.js"></script>
+		<script src="/wenxianchufang/wenxian2/Public/assets/js/ace-elements.min.js"></script>
+		<script src="/wenxianchufang/wenxian2/Public/assets/js/ace.min.js"></script>
 
 		<!-- inline scripts related to this page -->
 

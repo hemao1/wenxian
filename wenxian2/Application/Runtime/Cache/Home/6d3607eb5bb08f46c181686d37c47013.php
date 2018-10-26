@@ -4,11 +4,11 @@
 	<meta charset="UTF-8">
 	<meat name="viewport" content="width=device-width,initial-scale=2,maximum-scale=3,user-scalable=no">
 	<title>温鲜私家厨房</title>
-	<link rel="stylesheet" href="/wenxian2/Public/css/style.css">
-	<link rel="stylesheet" type="text/css" href="/wenxian2/Public/css/swiper.css">
+	<link rel="stylesheet" href="/wenxianchufang/wenxian2/Public/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/wenxianchufang/wenxian2/Public/css/swiper.css">
 	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 	<script src="https://unpkg.com/vue/dist/vue.js"></script>
-	<script src="/wenxian2/Public/js/swiper.min.js"></script>
+	<script src="/wenxianchufang/wenxian2/Public/js/swiper.min.js"></script>
 	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
 </head>
 <body>
@@ -23,22 +23,22 @@
 <div class="content-container" id="About">
 	<div class="nav-container width1200">
 		<ul class="nav">
-			<li><a href="/wenxian2/index.php/Home/Index/index">网站首页</a></li>
-			<li><a href="/wenxian2/index.php/Home/Index/About">关于我们</a></li>
-			<li><a href="/wenxian2/index.php/Home/Index/Information">美食资讯</a></li>
+			<li><a href="/wenxianchufang/wenxian2/index.php/Home/Index/index">网站首页</a></li>
+			<li><a href="/wenxianchufang/wenxian2/index.php/Home/Index/About">关于我们</a></li>
+			<li><a href="/wenxianchufang/wenxian2/index.php/Home/Index/Information">美食资讯</a></li>
 			<li>
 				<a href="javascript:void(0)" class="logo-box">
-					<img src="/wenxian2/Public/img/logo.png" alt="温鲜私家厨房LOGO">
+					<img src="/wenxianchufang/wenxian2/Public/img/logo.jpg" alt="温鲜私家厨房LOGO">
 				</a>
 			</li>
-			<li><a href="javascript:void(0)">菜单中心</a></li>
-			<li><a href="javascript:void(0)">重要活动</a></li>
-			<li><a href="javascript:void(0)">联系我们</a></li>
+			<li><a href="/wenxianchufang/wenxian2/index.php/Home/Index/menu">菜单中心</a></li>
+			<li><a href="/wenxianchufang/wenxian2/index.php/Home/Index/activities">重要活动</a></li>
+			<li><a href="/wenxianchufang/wenxian2/index.php/Home/Index/contactUs">联系我们</a></li>
 		</ul>
 	</div>
 	<div class="content-first-banner">
-		<img draggable="false" src="/wenxian2/Public/img/aboutUs-banner_01.jpg">
-		<img draggable="false" src="/wenxian2/Public/img/aboutUs-banner_02.jpg">
+		<img draggable="false" src="/wenxianchufang/wenxian2/Public/img/aboutUs-banner_01.jpg">
+		<img draggable="false" src="/wenxianchufang/wenxian2/Public/img/aboutUs-banner_02.jpg">
 	</div>
 	<div class="about-content-container width1200">
 		<el-breadcrumb separator-class="el-icon-arrow-right">
@@ -48,7 +48,7 @@
 		<div class="restaurant-story">
 			<ul>
 				<li>
-					<img src="/wenxian2/Public/img/restaurant-story.jpg">
+					<img src="/wenxianchufang/wenxian2/Public/img/restaurant-story.jpg">
 				</li>
 				<li>
 					<h3>餐厅简介</h3>
@@ -71,7 +71,7 @@
 			<ul>
 				<li>
 					<div>
-						<img src="/wenxian2/Public/img/brand-story-1.jpg">
+						<img src="/wenxianchufang/wenxian2/Public/img/brand-story-1.jpg">
 					</div>
 					<div class="sanjiaoxing"></div>
 					<div class="story-box">
@@ -85,12 +85,12 @@
 						<p class="content">让游子回味乡愁，唤起儿时的记忆，<br/>让食客品尝美味，激发味蕾的嗅觉</p>
 					</div>
 					<div>
-						<img src="/wenxian2/Public/img/brand-story-2.jpg">
+						<img src="/wenxianchufang/wenxian2/Public/img/brand-story-2.jpg">
 					</div>
 				</li>
 				<li>
 					<div>
-						<img src="/wenxian2/Public/img/brand-story-3.jpg">
+						<img src="/wenxianchufang/wenxian2/Public/img/brand-story-3.jpg">
 					</div>
 					<div class="story-box">
 						<p class="tit">品牌 . 愿景</p>
@@ -100,7 +100,7 @@
 			</ul>
 		</div>
 		<div class="bottom-jt-box">
-			<img src="/wenxian2/Public/img/bottom-jt.jpg">
+			<img src="/wenxianchufang/wenxian2/Public/img/bottom-jt.jpg">
 		</div>
 	</div>
 	<div class="local-custom-box">
@@ -136,7 +136,7 @@
 				</ul>
 			</div>
 			<div class="img-container">
-				<img src="/wenxian2/Public/img/local-sign-img.jpg">
+				<img src="/wenxianchufang/wenxian2/Public/img/local-sign-img.jpg">
 			</div>
 		</div>
 	</div>
@@ -144,12 +144,12 @@
 <footer>
 	<div class="footer-container width1200">
 		<div>
-			<img src="/wenxian2/Public/img/1_44.png">
+			<img src="/wenxianchufang/wenxian2/Public/img/1_44.png">
 		</div>
 		<div>1999-2018 合茂集团股份有限公司 浙ICP备14024595号</div>
 		<div>联系我们</div>
 		<div>
-			<img src="/wenxian2/Public/img/QR.jpg">
+			<img src="/wenxianchufang/wenxian2/Public/img/QR.jpg">
 		</div>
 	</div>
 </footer>

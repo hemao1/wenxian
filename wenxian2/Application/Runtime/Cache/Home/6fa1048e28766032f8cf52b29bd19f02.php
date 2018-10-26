@@ -4,11 +4,11 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no"> 
 	<title>美食资讯</title>
-	<link rel="stylesheet" href="/wenxian2/Public/css/style.css">
-	<link rel="stylesheet" type="text/css" href="/wenxian2/Public/css/swiper.css">
+	<link rel="stylesheet" href="/wenxianchufang/wenxian2/Public/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/wenxianchufang/wenxian2/Public/css/swiper.css">
 	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 	<script src="https://unpkg.com/vue/dist/vue.js"></script>
-	<script src="/wenxian2/Public/js/swiper.min.js"></script>
+	<script src="/wenxianchufang/wenxian2/Public/js/swiper.min.js"></script>
 	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
 </head>
 <body>
@@ -23,17 +23,17 @@
 <div class="content-container" id="Information">
 	<div class="nav-container width1200">
 		<ul class="nav">
-			<li><a href="/wenxian2/index.php/Home/Index/index">网站首页</a></li>
-			<li><a href="/wenxian2/index.php/Home/Index/About">关于我们</a></li>
-			<li><a href="/wenxian2/index.php/Home/Index/Information">美食资讯</a></li>
+			<li><a href="/wenxianchufang/wenxian2/index.php/Home/Index/index">网站首页</a></li>
+			<li><a href="/wenxianchufang/wenxian2/index.php/Home/Index/About">关于我们</a></li>
+			<li><a href="/wenxianchufang/wenxian2/index.php/Home/Index/Information">美食资讯</a></li>
 			<li>
 				<a href="javascript:void(0)" class="logo-box">
-					<img src="/wenxian2/Public/img/logo.png" alt="温鲜私家厨房LOGO">
+					<img src="/wenxianchufang/wenxian2/Public/img/logo.jpg" alt="温鲜私家厨房LOGO">
 				</a>
 			</li>
-			<li><a href="javascript:void(0)">菜单中心</a></li>
-			<li><a href="javascript:void(0)">重要活动</a></li>
-			<li><a href="javascript:void(0)">联系我们</a></li>
+			<li><a href="/wenxianchufang/wenxian2/index.php/Home/Index/menu">菜单中心</a></li>
+			<li><a href="/wenxianchufang/wenxian2/index.php/Home/Index/activities">重要活动</a></li>
+			<li><a href="/wenxianchufang/wenxian2/index.php/Home/Index/contactUs">联系我们</a></li>
 		</ul>
 	</div>
 	<div class="about-content-container width1200">
@@ -44,7 +44,7 @@
 		</el-breadcrumb>
 	</div>
 	<div class="information-title-box">
-		<img src="/wenxian2/Public/img/information-title.png">
+		<img src="/wenxianchufang/wenxian2/Public/img/information-title.png">
 	</div>
 	<div class="information-list-container width1200">
 		<information-list-comp v-for="(informationItem,index) in informationItems" v-if='index < 6' :infor="informationItem" :key="index"></information-list-comp>
@@ -67,12 +67,12 @@
 <footer>
 	<div class="footer-container width1200">
 		<div>
-			<img src="/wenxian2/Public/img/1_44.png">
+			<img src="/wenxianchufang/wenxian2/Public/img/1_44.png">
 		</div>
 		<div>1999-2018 合茂集团股份有限公司 浙ICP备14024595号</div>
 		<div>联系我们</div>
 		<div>
-			<img src="/wenxian2/Public/img/QR.jpg">
+			<img src="/wenxianchufang/wenxian2/Public/img/QR.jpg">
 		</div>
 	</div>
 </footer>
@@ -101,37 +101,37 @@ new Vue({
 		return {
 			informationItems:[
 				{
-					imgs : '/wenxian2/Public/img/information-img-1.jpg',
+					imgs : '/wenxianchufang/wenxian2/Public/img/information-img-1.jpg',
 					tit : '红烧螃蟹',
 					text: '红烧螃蟹是喜爱吃螃蟹的中国的一中著名菜肴，菜系上属于泸菜。其味道香鲜可口，色香味俱全，做法较容易。',
 					date: '2018.10.17',
 					href: 'javascript:void(0)'
 				},{
-					imgs : '/wenxian2/Public/img/information-img-2.jpg',
+					imgs : '/wenxianchufang/wenxian2/Public/img/information-img-2.jpg',
 					tit : '红烧螃蟹',
 					text: '红烧螃蟹是喜爱吃螃蟹的中国的一中著名菜肴，菜系上属于泸菜。其味道香鲜可口，色香味俱全，做法较容易。',
 					date: '2018.10.17',
 					href: 'javascript:void(0)'
 				},{
-					imgs : '/wenxian2/Public/img/information-img-3.jpg',
+					imgs : '/wenxianchufang/wenxian2/Public/img/information-img-3.jpg',
 					tit : '红烧螃蟹',
 					text: '红烧螃蟹是喜爱吃螃蟹的中国的一中著名菜肴，菜系上属于泸菜。其味道香鲜可口，色香味俱全，做法较容易。',
 					date: '2018.10.17',
 					href: 'javascript:void(0)'
 				},{
-					imgs : '/wenxian2/Public/img/information-img-4.jpg',
+					imgs : '/wenxianchufang/wenxian2/Public/img/information-img-4.jpg',
 					tit : '红烧螃蟹',
 					text: '红烧螃蟹是喜爱吃螃蟹的中国的一中著名菜肴，菜系上属于泸菜。其味道香鲜可口，色香味俱全，做法较容易。',
 					date: '2018.10.17',
 					href: 'javascript:void(0)'
 				},{
-					imgs : '/wenxian2/Public/img/information-img-5.jpg',
+					imgs : '/wenxianchufang/wenxian2/Public/img/information-img-5.jpg',
 					tit : '红烧螃蟹',
 					text: '红烧螃蟹是喜爱吃螃蟹的中国的一中著名菜肴，菜系上属于泸菜。其味道香鲜可口，色香味俱全，做法较容易。',
 					date: '2018.10.17',
 					href: 'javascript:void(0)'
 				},{
-					imgs : '/wenxian2/Public/img/information-img-6.jpg',
+					imgs : '/wenxianchufang/wenxian2/Public/img/information-img-6.jpg',
 					tit : '红烧螃蟹',
 					text: '红烧螃蟹是喜爱吃螃蟹的中国的一中著名菜肴，菜系上属于泸菜。其味道香鲜可口，色香味俱全，做法较容易。',
 					date: '2018.10.17',

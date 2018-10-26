@@ -1,15 +1,15 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="initial-scale=1.0, user-scalable=no"> 
 	<title>重要活动</title>
-	<link rel="stylesheet" href="__PUBLIC__/css/style.css">
-	<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/swiper.css">
-	<link rel="stylesheet" href="__PUBLIC__/css/element-ui.css">
-	<script src="__PUBLIC__/js/vue.js"></script>
-	<script src="__PUBLIC__/js/swiper.min.js"></script>
-	<script src="__PUBLIC__/js/element-ui.js"></script>
+	<link rel="stylesheet" href="/wenxianchufang/wenxian2/Public/css/style.css">
+	<link rel="stylesheet" type="text/css" href="/wenxianchufang/wenxian2/Public/css/swiper.css">
+	<link rel="stylesheet" href="/wenxianchufang/wenxian2/Public/css/element-ui.css">
+	<script src="/wenxianchufang/wenxian2/Public/js/vue.js"></script>
+	<script src="/wenxianchufang/wenxian2/Public/js/swiper.min.js"></script>
+	<script src="/wenxianchufang/wenxian2/Public/js/element-ui.js"></script>
 </head>
 <body>
 <header>
@@ -23,17 +23,17 @@
 <div class="content-container" id="Activities">
 	<div class="nav-container width1200">
 		<ul class="nav">
-			<li><a href="__URL__/Index">网站首页</a></li>
-			<li><a href="__URL__/About">关于我们</a></li>
-			<li><a href="__URL__/Information">美食资讯</a></li>
+			<li><a href="/wenxianchufang/wenxian2/index.php/Home/Index/Index">网站首页</a></li>
+			<li><a href="/wenxianchufang/wenxian2/index.php/Home/Index/About">关于我们</a></li>
+			<li><a href="/wenxianchufang/wenxian2/index.php/Home/Index/Information">美食资讯</a></li>
 			<li>
 				<a href="javascript:void(0)" class="logo-box">
-					<img src="__PUBLIC__/img/logo.jpg" alt="温鲜私家厨房LOGO">
+					<img src="/wenxianchufang/wenxian2/Public/img/logo.jpg" alt="温鲜私家厨房LOGO">
 				</a>
 			</li>
-		<li><a href="__URL__/menu">菜单中心</a></li>
-			<li><a href="__URL__/activities">重要活动</a></li>
-			<li><a href="__URL__/contactUs">联系我们</a></li>
+		<li><a href="/wenxianchufang/wenxian2/index.php/Home/Index/menu">菜单中心</a></li>
+			<li><a href="/wenxianchufang/wenxian2/index.php/Home/Index/activities">重要活动</a></li>
+			<li><a href="/wenxianchufang/wenxian2/index.php/Home/Index/contactUs">联系我们</a></li>
 		</ul>
 	</div>
 	<div class="about-content-container width1200">
@@ -44,7 +44,7 @@
 		</el-breadcrumb>
 	</div>
 	<div class="information-title-box">
-		<img src="__PUBLIC__/img/1_28_1.jpg">
+		<img src="/wenxianchufang/wenxian2/Public/img/1_28_1.jpg">
 	</div>
 	<div class="menu-small-nav">
 		<a href="javascript:void(0)">全部</a>
@@ -96,12 +96,12 @@
 <footer>
 	<div class="footer-container width1200">
 		<div>
-			<img src="__PUBLIC__/img/1_44.png">
+			<img src="/wenxianchufang/wenxian2/Public/img/1_44.png">
 		</div>
 		<div>1999-2018 合茂集团股份有限公司 浙ICP备14024595号</div>
 		<div>联系我们</div>
 		<div>
-			<img src="__PUBLIC__/img/QR.jpg">
+			<img src="/wenxianchufang/wenxian2/Public/img/QR.jpg">
 		</div>
 	</div>
 </footer>
@@ -112,11 +112,11 @@ new Vue({
 		return {
 			activities: [
 				{
-					activeItemsImg : '__PUBLIC__/img/0059.jpg'
+					activeItemsImg : '/wenxianchufang/wenxian2/Public/img/0059.jpg'
 				}, {
-					activeItemsImg : '__PUBLIC__/img/0059.jpg'
+					activeItemsImg : '/wenxianchufang/wenxian2/Public/img/0059.jpg'
 				}, {
-					activeItemsImg : '__PUBLIC__/img/0059.jpg'
+					activeItemsImg : '/wenxianchufang/wenxian2/Public/img/0059.jpg'
 				}
 			],
 		}

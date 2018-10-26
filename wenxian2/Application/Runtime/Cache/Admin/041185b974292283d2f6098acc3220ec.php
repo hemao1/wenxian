@@ -5,7 +5,7 @@
 
 <style type="text/css">
     
-body {background:url(/wenxian2/Public/assets/avatars/0.jpg) top center no-repeat; background-size:cover;}
+body {background:url(/wenxianchufang/wenxian2/Public/assets/avatars/0.jpg) top center no-repeat; background-size:cover;}
 </style>
 <head>
 
@@ -18,16 +18,16 @@ body {background:url(/wenxian2/Public/assets/avatars/0.jpg) top center no-repeat
     <title>Login</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="/wenxian2/Public/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/wenxianchufang/wenxian2/Public/assets/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- MetisMenu CSS -->
     <link href="../bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="/wenxian2/Public/assets/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/wenxianchufang/wenxian2/Public/assets/css/sb-admin-2.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-	<link rel="stylesheet" href="/wenxian2/Public/assets/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="/wenxianchufang/wenxian2/Public/assets/css/font-awesome.min.css" />
 
 
 </head>
@@ -42,7 +42,7 @@ body {background:url(/wenxian2/Public/assets/avatars/0.jpg) top center no-repeat
                         <h3 class="panel-title">合茂集团管理后台</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" action="/wenxian2/index.php/Admin/Index/login" method="post">
+                        <form role="form" action="/wenxianchufang/wenxian2/index.php/Admin/Index/login" method="post">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="手机号" name="email"  >
@@ -52,8 +52,7 @@ body {background:url(/wenxian2/Public/assets/avatars/0.jpg) top center no-repeat
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        <input name="remember" type="checkbox" value="Remember Me">记住密码
-										
+                                        <input name="remember" type="checkbox" value="Remember Me">记住密码	
                                     </label>
 									 
                                 </div>

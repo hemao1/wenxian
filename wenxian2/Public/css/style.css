@@ -602,7 +602,7 @@ footer{
 .contact-us-content ul{
 	width: 400px;
 	float: left;
-	margin: 260px 0 0 130px;
+	margin: 230px 0 0 100px;
 }
 #map-container{
 	width: 660px;
@@ -610,6 +610,8 @@ footer{
 	float: left;
 }
 .contact-us-content ul li{
+	font-weight:bold;
+	font-size:16px;
 	line-height: 30px;
 }
 
