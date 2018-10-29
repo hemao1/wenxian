@@ -1,119 +1,121 @@
 <block name="header"><include file="Public:header" /></block>
-	<div class="about-content-container width1200">
-		<el-breadcrumb separator-class="el-icon-arrow-right">
-			<el-breadcrumb-item>您的位置：</el-breadcrumb-item>
-			<el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-			<el-breadcrumb-item :to="{ path: '/information' }">菜单中心</el-breadcrumb-item>
-		</el-breadcrumb>
-	</div>
-	<div class="information-title-box">
-		<img src="__PUBLIC__/img/menu.png">
-	</div>
-	<div class="menu-small-nav">
-		<a href="javascript:void(0)">全部</a>
-		<a href="javascript:void(0)">推荐菜品</a>
-	</div>
-	<div class="menu-content-box width1200">
-		<ul>
-			<li>
-				<div>
-					<img src="__PUBLIC__/img/menu-item-img.jpg">
-				</div>
-				<p>凉拌海蜇</p>
-			</li>
-			<li>
-				<div>
-					<img src="__PUBLIC__/img/menu-item-img.jpg">
-				</div>
-				<p>凉拌海蜇</p>
-			</li>
-			<li>
-				<div>
-					<img src="__PUBLIC__/img/menu-item-img.jpg">
-				</div>
-				<p>凉拌海蜇</p>
-			</li>
-		</ul>
-		<ul>
-			<li>
-				<div>
-					<img src="__PUBLIC__/img/menu-item-img.jpg">
-				</div>
-				<p>凉拌海蜇</p>
-			</li>
-			<li>
-				<div>
-					<img src="__PUBLIC__/img/menu-item-img.jpg">
-				</div>
-				<p>凉拌海蜇</p>
-			</li>
-			<li>
-				<div>
-					<img src="__PUBLIC__/img/menu-item-img.jpg">
-				</div>
-				<p>凉拌海蜇</p>
-			</li>
-		</ul>
-		<ul>
-			<li>
-				<div>
-					<img src="__PUBLIC__/img/menu-item-img.jpg">
-				</div>
-				<p>凉拌海蜇</p>
-			</li>
-			<li>
-				<div>
-					<img src="__PUBLIC__/img/menu-item-img.jpg">
-				</div>
-				<p>凉拌海蜇</p>
-			</li>
-			<li>
-				<div>
-					<img src="__PUBLIC__/img/menu-item-img.jpg">
-				</div>
-				<p>凉拌海蜇</p>
-			</li>
-		</ul>
-		<ul>
-			<li>
-				<div>
-					<img src="__PUBLIC__/img/menu-item-img.jpg">
-				</div>
-				<p>凉拌海蜇</p>
-			</li>
-			<li>
-				<div>
-					<img src="__PUBLIC__/img/menu-item-img.jpg">
-				</div>
-				<p>凉拌海蜇</p>
-			</li>
-			<li>
-				<div>
-					<img src="__PUBLIC__/img/menu-item-img.jpg">
-				</div>
-				<p>凉拌海蜇</p>
-			</li>
-		</ul>
-	</div>
-	<!-- 分页 -->
-	<div class="block">
-		<el-pagination
-		prev-text="上一页"
-		next-text="下一页"
-		@size-change="handleSizeChange"
-		@current-change="currentChange"
-		@prev-click="prevClick"
-		@next-click="nextClick"
-		:page-size="12"
-		layout="prev, pager, next"
-		:total="1000">
-		</el-pagination>
+	<div id="menu">
+		<div class="about-content-container width1200">
+			<el-breadcrumb separator-class="el-icon-arrow-right">
+				<el-breadcrumb-item>您的位置：</el-breadcrumb-item>
+				<el-breadcrumb-item :to="{ path: '/' }"><a href="index.html">首页</a></el-breadcrumb-item>
+				<el-breadcrumb-item :to="{ path: '/information' }">菜单中心</el-breadcrumb-item>
+			</el-breadcrumb>
+		</div>
+		<div class="information-title-box">
+			<img src="__PUBLIC__/img/menu.png">
+		</div>
+		<div class="menu-small-nav">
+			<a href="javascript:void(0)">全部</a>
+			<a href="javascript:void(0)">推荐菜品</a>
+		</div>
+		<div class="menu-content-box width1200">
+			<ul>
+				<li>
+					<div>
+						<img src="__PUBLIC__/img/menu-item-img.jpg">
+					</div>
+					<p>凉拌海蜇</p>
+				</li>
+				<li>
+					<div>
+						<img src="__PUBLIC__/img/menu-item-img.jpg">
+					</div>
+					<p>凉拌海蜇</p>
+				</li>
+				<li>
+					<div>
+						<img src="__PUBLIC__/img/menu-item-img.jpg">
+					</div>
+					<p>凉拌海蜇</p>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<div>
+						<img src="__PUBLIC__/img/menu-item-img.jpg">
+					</div>
+					<p>凉拌海蜇</p>
+				</li>
+				<li>
+					<div>
+						<img src="__PUBLIC__/img/menu-item-img.jpg">
+					</div>
+					<p>凉拌海蜇</p>
+				</li>
+				<li>
+					<div>
+						<img src="__PUBLIC__/img/menu-item-img.jpg">
+					</div>
+					<p>凉拌海蜇</p>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<div>
+						<img src="__PUBLIC__/img/menu-item-img.jpg">
+					</div>
+					<p>凉拌海蜇</p>
+				</li>
+				<li>
+					<div>
+						<img src="__PUBLIC__/img/menu-item-img.jpg">
+					</div>
+					<p>凉拌海蜇</p>
+				</li>
+				<li>
+					<div>
+						<img src="__PUBLIC__/img/menu-item-img.jpg">
+					</div>
+					<p>凉拌海蜇</p>
+				</li>
+			</ul>
+			<ul>
+				<li>
+					<div>
+						<img src="__PUBLIC__/img/menu-item-img.jpg">
+					</div>
+					<p>凉拌海蜇</p>
+				</li>
+				<li>
+					<div>
+						<img src="__PUBLIC__/img/menu-item-img.jpg">
+					</div>
+					<p>凉拌海蜇</p>
+				</li>
+				<li>
+					<div>
+						<img src="__PUBLIC__/img/menu-item-img.jpg">
+					</div>
+					<p>凉拌海蜇</p>
+				</li>
+			</ul>
+		</div>
+		<!-- 分页 -->
+		<div class="block">
+			<el-pagination
+			prev-text="上一页"
+			next-text="下一页"
+			@size-change="handleSizeChange"
+			@current-change="currentChange"
+			@prev-click="prevClick"
+			@next-click="nextClick"
+			:page-size="12"
+			layout="prev, pager, next"
+			:total="1000">
+			</el-pagination>
+		</div>
 	</div>
 </div>
 <block name="footer"><include file="Public:footer" /></block>
 <script>
 new Vue({
-	el: '#Menu',
+	el: '#menu',
 	data() {
 		return {
 			
