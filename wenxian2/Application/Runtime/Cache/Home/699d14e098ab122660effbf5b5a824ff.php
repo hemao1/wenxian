@@ -55,23 +55,10 @@
 			<ul class="width1200" id="importantActivities-view">
 				<li v-for="active in activities">
 					<div class="bg-layer">
-						<p>合茂集团董事长与贝宁共和国大使会餐</p>
-						<p>10-19</p>
+						<p>{{ active.activeItemsTitle }}</p>
+						<p>{{ active.activeItemsDate }}</p>
 						<div class="date-box">
-							<p>2018</p>
-							<p class="el-icon-arrow-right"></p>
-						</div>
-					</div>
-					<img :src="active.activeItemsImg">
-				</li>
-			</ul>
-			<ul class="width1200" id="importantActivities-view">
-				<li v-for="active in activities">
-					<div class="bg-layer">
-						<p>合茂集团董事长与贝宁共和国大使会餐</p>
-						<p>10-19</p>
-						<div class="date-box">
-							<p>2018</p>
+							<p>{{ active.activeItemsYear }}</p>
 							<p class="el-icon-arrow-right"></p>
 						</div>
 					</div>
@@ -84,13 +71,10 @@
 			<el-pagination
 			prev-text="上一页"
 			next-text="下一页"
-			@size-change="handleSizeChange"
 			@current-change="currentChange"
-			@prev-click="prevClick"
-			@next-click="nextClick"
-			:page-size="12"
+			:page-size="6"
 			layout="prev, pager, next"
-			:total="1000">
+			:total="10">
 			</el-pagination>
 		</div>
 	</div>
@@ -112,30 +96,72 @@ new Vue({
 	el: '#activities',
 	data() {
 		return {
-			activities: [
+			activities: [],
+			lists: [
 				{
+					activeItemsTitle : '合茂集团董事长与贝宁共和国大使会餐',
+					activeItemsDate : '10-29',
+					activeItemsYear : '2018',
 					activeItemsImg : '/wenxian2/Public/img/0059.jpg'
-				}, {
+				},{
+					activeItemsTitle : '合茂集团董事长与贝宁共和国大使会餐',
+					activeItemsDate : '10-28',
+					activeItemsYear : '2018',
 					activeItemsImg : '/wenxian2/Public/img/0059.jpg'
-				}, {
+				},{
+					activeItemsTitle : '合茂集团董事长与贝宁共和国大使会餐',
+					activeItemsDate : '10-27',
+					activeItemsYear : '2018',
+					activeItemsImg : '/wenxian2/Public/img/0059.jpg'
+				},{
+					activeItemsTitle : '合茂集团董事长与贝宁共和国大使会餐',
+					activeItemsDate : '10-26',
+					activeItemsYear : '2018',
+					activeItemsImg : '/wenxian2/Public/img/0059.jpg'
+				},{
+					activeItemsTitle : '合茂集团董事长与贝宁共和国大使会餐',
+					activeItemsDate : '10-25',
+					activeItemsYear : '2018',
+					activeItemsImg : '/wenxian2/Public/img/0059.jpg'
+				},{
+					activeItemsTitle : '合茂集团董事长与贝宁共和国大使会餐',
+					activeItemsDate : '10-24',
+					activeItemsYear : '2018',
+					activeItemsImg : '/wenxian2/Public/img/0059.jpg'
+				},{
+					activeItemsTitle : '合茂集团董事长与贝宁共和国大使会餐',
+					activeItemsDate : '10-23',
+					activeItemsYear : '2018',
+					activeItemsImg : '/wenxian2/Public/img/0059.jpg'
+				},{
+					activeItemsTitle : '合茂集团董事长与贝宁共和国大使会餐',
+					activeItemsDate : '10-22',
+					activeItemsYear : '2018',
+					activeItemsImg : '/wenxian2/Public/img/0059.jpg'
+				},{
+					activeItemsTitle : '合茂集团董事长与贝宁共和国大使会餐',
+					activeItemsDate : '10-21',
+					activeItemsYear : '2018',
+					activeItemsImg : '/wenxian2/Public/img/0059.jpg'
+				},{
+					activeItemsTitle : '合茂集团董事长与贝宁共和国大使会餐',
+					activeItemsDate : '10-20',
+					activeItemsYear : '2018',
 					activeItemsImg : '/wenxian2/Public/img/0059.jpg'
 				}
-			],
+			]
 		}
 	},
+	created(val) {
+		const { lists } = this
+		const arr = lists.slice((val-1)*6,6)
+		this.activities = arr
+	},
 	methods: {
-		handleSizeChange(val) {
-			this.pagesize = val;
-		},
 		currentChange(current) {
-			this.pagesize = current;
-			console.log(current)
-		},
-		prevClick(prev) {
-			// console.log(prev)
-		},
-		nextClick(next) {
-			// console.log(next)
+			const { lists } = this
+			const arr = lists.slice((current-1)*6,current*6)
+			this.activities = arr
 		}
 	}
 })

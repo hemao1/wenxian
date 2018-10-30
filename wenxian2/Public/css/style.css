@@ -13,6 +13,21 @@ h3{
 h5{
 	color: #666666;
 }
+/* 分页上下页按钮样式 */
+.el-pagination .btn-next,
+.el-pagination .btn-prev{
+	border: solid 1px #000;
+	padding: 0 12px;
+}
+.el-pagination button:disabled{
+	border: solid 1px #c0c4cc;
+	cursor: not-allowed;
+}
+/* 面包屑统一样式 */
+.el-breadcrumb__item:last-child .el-breadcrumb__inner{
+	color: #e03344 !important;
+}
+
 /* all */
 .width1200{
 	width: 1200px;
@@ -257,17 +272,18 @@ footer{
 	width: 1200px;
 	margin: 60px auto 60px auto;
 }
-.importantActivities-container > ul li:first-child{
-	margin-left: 0;
-}
 .importantActivities-container > ul li{
 	float: left;
 	overflow: hidden;
 	width: 388px;
-	margin-left: 15px;
 	border: solid 1px #CCCCCC;
 	height: 214px;
 	position: relative;
+	margin: 30px auto;
+}
+.importantActivities-container > ul li:nth-of-type(2),
+.importantActivities-container > ul li:nth-of-type(5){
+	margin: 30px 15px;
 }
 .importantActivities-container > ul li img{
 	width: 100%;
@@ -547,8 +563,12 @@ footer{
 }
 .menu-content-box ul{
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: flex-start;
-	margin: 60px auto 0 auto;
+	margin: 40px auto 0 auto;
+}
+.menu-content-box ul li{
+	margin-top: 40px;
 }
 .menu-content-box ul li > div{
 	height: 215px;
@@ -556,8 +576,11 @@ footer{
 .menu-content-box ul li img{
 	width: 100%;
 }
-.menu-content-box ul li:nth-of-type(2){
-	margin: 0 60px;
+.menu-content-box ul li:nth-of-type(2),
+.menu-content-box ul li:nth-of-type(5),
+.menu-content-box ul li:nth-of-type(8),
+.menu-content-box ul li:nth-of-type(11){
+	margin: 40px 60px;
 }
 .menu-content-box ul li > p{
 	height: 68px;
@@ -615,6 +638,33 @@ footer{
 	line-height: 30px;
 }
 
+/* 菜品详情页面 */
+.details-container{
+	background-color: #f5f5f5;
+	display: flex;
+}
+.details-container .details-left-content{
+	width: 75%;
+	margin: 0 auto 60px auto;
+}
+.details-container .details-right-content{
+	margin-top: 1px; 
+	background-color: white;
+	width: 25%;
+}
+.details-big-img-box{
+	width: 1200px;
+	height: 730px;
+	margin: auto;
+}
+.details-right-content .text-content{
+	padding: 0 50px;
+	margin: 110px auto 30px auto;
+}
+.details-right-content h4{
+	font-size: 20px;
+	margin: 40px auto 20px auto;
+}
 
 
 

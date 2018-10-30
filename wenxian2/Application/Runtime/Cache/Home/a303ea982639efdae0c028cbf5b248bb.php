@@ -53,84 +53,7 @@
 		</div>
 		<div class="menu-content-box width1200">
 			<ul>
-				<li>
-					<div>
-						<img src="/wenxian2/Public/img/menu-item-img.jpg">
-					</div>
-					<p>凉拌海蜇</p>
-				</li>
-				<li>
-					<div>
-						<img src="/wenxian2/Public/img/menu-item-img.jpg">
-					</div>
-					<p>凉拌海蜇</p>
-				</li>
-				<li>
-					<div>
-						<img src="/wenxian2/Public/img/menu-item-img.jpg">
-					</div>
-					<p>凉拌海蜇</p>
-				</li>
-			</ul>
-			<ul>
-				<li>
-					<div>
-						<img src="/wenxian2/Public/img/menu-item-img.jpg">
-					</div>
-					<p>凉拌海蜇</p>
-				</li>
-				<li>
-					<div>
-						<img src="/wenxian2/Public/img/menu-item-img.jpg">
-					</div>
-					<p>凉拌海蜇</p>
-				</li>
-				<li>
-					<div>
-						<img src="/wenxian2/Public/img/menu-item-img.jpg">
-					</div>
-					<p>凉拌海蜇</p>
-				</li>
-			</ul>
-			<ul>
-				<li>
-					<div>
-						<img src="/wenxian2/Public/img/menu-item-img.jpg">
-					</div>
-					<p>凉拌海蜇</p>
-				</li>
-				<li>
-					<div>
-						<img src="/wenxian2/Public/img/menu-item-img.jpg">
-					</div>
-					<p>凉拌海蜇</p>
-				</li>
-				<li>
-					<div>
-						<img src="/wenxian2/Public/img/menu-item-img.jpg">
-					</div>
-					<p>凉拌海蜇</p>
-				</li>
-			</ul>
-			<ul>
-				<li>
-					<div>
-						<img src="/wenxian2/Public/img/menu-item-img.jpg">
-					</div>
-					<p>凉拌海蜇</p>
-				</li>
-				<li>
-					<div>
-						<img src="/wenxian2/Public/img/menu-item-img.jpg">
-					</div>
-					<p>凉拌海蜇</p>
-				</li>
-				<li>
-					<div>
-						<img src="/wenxian2/Public/img/menu-item-img.jpg">
-					</div>
-					<p>凉拌海蜇</p>
-				</li>
+				<menu-list v-for="(menu,index) in menus" v-if="index < 12" :menu="menu" :key="menu"></menu-list>
 			</ul>
 		</div>
 		<!-- 分页 -->
@@ -138,13 +61,10 @@
 			<el-pagination
 			prev-text="上一页"
 			next-text="下一页"
-			@size-change="handleSizeChange"
 			@current-change="currentChange"
-			@prev-click="prevClick"
-			@next-click="nextClick"
 			:page-size="12"
 			layout="prev, pager, next"
-			:total="1000">
+			:total="20">
 			</el-pagination>
 		</div>
 	</div>
@@ -162,26 +82,95 @@
 	</div>
 </footer>
 <script>
+Vue.component('menu-list',{
+	props:[
+		'menu'
+	],
+	template:   `<li>
+					<div>
+						<img :src='menu.imgs'>
+					</div>
+					<p>{{ menu.tag }}</p>
+				</li>`
+})
 new Vue({
 	el: '#menu',
-	data() {
-		return {
-			
-		}
+	data: {
+		menus: [],
+		lists : [
+			{
+				imgs : '/wenxian2/Public/img/menu-item-img.jpg',
+				tag : '凉拌海蜇1'
+			},{
+				imgs : '/wenxian2/Public/img/menu-item-img.jpg',
+				tag : '凉拌海蜇2'
+			},{
+				imgs : '/wenxian2/Public/img/menu-item-img.jpg',
+				tag : '凉拌海蜇3'
+			},{
+				imgs : '/wenxian2/Public/img/menu-item-img.jpg',
+				tag : '凉拌海蜇4'
+			},{
+				imgs : '/wenxian2/Public/img/menu-item-img.jpg',
+				tag : '凉拌海蜇5'
+			},{
+				imgs : '/wenxian2/Public/img/menu-item-img.jpg',
+				tag : '凉拌海蜇6'
+			},{
+				imgs : '/wenxian2/Public/img/menu-item-img.jpg',
+				tag : '凉拌海蜇7'
+			},{
+				imgs : '/wenxian2/Public/img/menu-item-img.jpg',
+				tag : '凉拌海蜇8'
+			},{
+				imgs : '/wenxian2/Public/img/menu-item-img.jpg',
+				tag : '凉拌海蜇9'
+			},{
+				imgs : '/wenxian2/Public/img/menu-item-img.jpg',
+				tag : '凉拌海蜇10'
+			},{
+				imgs : '/wenxian2/Public/img/menu-item-img.jpg',
+				tag : '凉拌海蜇11'
+			},{
+				imgs : '/wenxian2/Public/img/menu-item-img.jpg',
+				tag : '凉拌海蜇12'
+			},{
+				imgs : '/wenxian2/Public/img/menu-item-img.jpg',
+				tag : '凉拌海蜇13'
+			},{
+				imgs : '/wenxian2/Public/img/menu-item-img.jpg',
+				tag : '凉拌海蜇14'
+			},{
+				imgs : '/wenxian2/Public/img/menu-item-img.jpg',
+				tag : '凉拌海蜇15'
+			},{
+				imgs : '/wenxian2/Public/img/menu-item-img.jpg',
+				tag : '凉拌海蜇16'
+			},{
+				imgs : '/wenxian2/Public/img/menu-item-img.jpg',
+				tag : '凉拌海蜇17'
+			},{
+				imgs : '/wenxian2/Public/img/menu-item-img.jpg',
+				tag : '凉拌海蜇18'
+			},{
+				imgs : '/wenxian2/Public/img/menu-item-img.jpg',
+				tag : '凉拌海蜇19'
+			},{
+				imgs : '/wenxian2/Public/img/menu-item-img.jpg',
+				tag : '凉拌海蜇20'
+			}
+		]
+	},
+	created(val) {
+		const { lists } = this
+		const arr = lists.slice((val-1)*12,12)
+		this.menus = arr
 	},
 	methods: {
-		handleSizeChange(val) {
-			this.pagesize = val;
-		},
 		currentChange(current) {
-			this.pagesize = current;
-			console.log(current)
-		},
-		prevClick(prev) {
-			// console.log(prev)
-		},
-		nextClick(next) {
-			// console.log(next)
+			const { lists } = this
+			const arr = lists.slice((current-1)*12,current*12)
+			this.menus = arr
 		}
 	}
 })
