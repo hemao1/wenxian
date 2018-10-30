@@ -40,5 +40,57 @@ class IndexController extends Controller {
         $this->display();
      }
 
+     public function duotiao()
+     {
+
+        $data = M('news')->select();
+
+        if($data)
+        {
+
+            $code = 200;
+            $message = 'success';
+
+        }
+        else
+        {
+
+            $code = 404;
+            $message = 'fail';
+        }
+
+        $result = array('code'=>$code, 'message'=>$message,'data'=>$data);
+        
+        $this->ajaxReturn($result,'JSONP');
+     }
+
+     public function dantiao()
+     {
+
+        $data = M('news')->select();
+
+        if($data)
+        {
+
+            $code = 200;
+            $message = 'success';
+
+        }
+        else
+        {
+
+            $code = 404;
+            $message = 'fail';
+        }
+
+        $result = array('code'=>$code, 'message'=>$message,'data'=>$data);
+
+        $this->ajaxReturn($result,'JSON');
+
+     }
+
+     
+
+
 
 }

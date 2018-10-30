@@ -16,7 +16,8 @@ return array(
 			 'dantiao/:id\d'   => 'Index/add',
 		    //多条消息
 		    'duotiao/xiaoxi' => 'Index/duotiao',
-
+		    'dantiao/xinxi' => 'Index/dantiao',
+		    
 	),
 
 	'TMPL_CACHE_ON' => false,//禁止模板编译缓存 
