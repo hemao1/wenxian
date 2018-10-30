@@ -122,7 +122,6 @@
 					for(let i=0;i<resLength;i++){
 						self.informationItems.push(res.data[i]);
 					}
-					// console.log(res.data)
 				}
 			})
 		},
@@ -134,8 +133,11 @@
 					type: 'GET',
 					dataType: 'JSONP',
 					success: function(res) {
+						let resLength = res.data.length
+						for(let i=0;i<resLength;i++){
+							self.informationItems.push(res.data[i]);
+						}
 						const arr = res.data.slice((current-1)*6,current*6)
-						let arrLength = arr.length
 						self.informationItems=arr
 					}
 				})
