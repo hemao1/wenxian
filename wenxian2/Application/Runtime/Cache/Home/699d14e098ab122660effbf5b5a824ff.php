@@ -10,6 +10,7 @@
 	<script src="/wenxian2/Public/js/vue.js"></script>
 	<script src="/wenxian2/Public/js/swiper.min.js"></script>
 	<script src="/wenxian2/Public/js/element-ui.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
 <header>
@@ -40,7 +41,7 @@
 		<div class="about-content-container width1200">
 			<el-breadcrumb separator-class="el-icon-arrow-right">
 				<el-breadcrumb-item>您的位置：</el-breadcrumb-item>
-				<el-breadcrumb-item><a href="index.html">首页</a></el-breadcrumb-item>
+				<el-breadcrumb-item><a href="/wenxian2/index.php/Home/Index/index">首页</a></el-breadcrumb-item>
 				<el-breadcrumb-item>重要活动</el-breadcrumb-item>
 			</el-breadcrumb>
 		</div>

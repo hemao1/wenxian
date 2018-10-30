@@ -47,8 +47,8 @@
 					<el-breadcrumb-item>红烧螃蟹</el-breadcrumb-item>
 				</el-breadcrumb>
 			</div>
-			<div class="details-big-img-box">
-				<img src="/wenxian2/Public/img/details-big-img.jpg">
+			<div class="details-big-img-box" v-for="(content,index) in contents">
+				<img :src="'/wenxian2/Public/img/' + content.imgs">
 			</div>
 		</div>
 		<div class="details-right-content">
