@@ -49,7 +49,19 @@
 			<img src="/wenxian2/Public/img/information-title.png">
 		</div>
 		<div class="information-list-container width1200">
-			<information-list-comp v-for="(informationItem,index) in informationItems" v-if='index < 6' :infor="informationItem" :key="index"></information-list-comp>
+			<div class="information-list-box" v-for="(informationItem,index) in informationItems" v-if='index < 6' :key="index">
+					<div class="imgs">
+						<img :src="'/wenxian2/Public/img/' + informationItem.imgs">
+					</div>
+					<div class="contents">
+						<h4>{{ informationItem.title }}</h4>
+						<p class="content-text">{{ informationItem.content }}</p>
+						<p class="information-date">{{ informationItem.time }}</p>
+						<div class="more-btn-box information-detail-btn width1200">
+							<a :href="'/wenxian2/index.php/Home/Index/information-details?id=' + informationItem.id" @click="seeDetails">查看详情</a>
+						</div>
+					</div>
+				</div>
 		</div>
 		<!-- 分页 -->
 		<div class="block">
@@ -77,24 +89,6 @@
 	</div>
 </footer>
 <script>
-	Vue.component('information-list-comp',{
-		props: [
-			'infor'
-		],
-		template:   `<div class="information-list-box">
-						<div class="imgs">
-							<img :src="'/wenxian2/Public/img/' + infor.imgs">
-						</div>
-						<div class="contents">
-							<h4>{{ infor.title }}</h4>
-							<p class="content-text">{{ infor.content }}</p>
-							<p class="information-date">{{ infor.time }}</p>
-							<div class="more-btn-box information-detail-btn width1200">
-								<a :href="infor.href">查看详情</a>
-							</div>
-						</div>
-					</div>`
-	})
 	new Vue({
 		el: '#information',
 		data: {
@@ -141,6 +135,9 @@
 						self.informationItems=arr
 					}
 				})
+			},
+			seeDetails(){
+				console.log(1)
 			}
 		}
 	})

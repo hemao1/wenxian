@@ -10,7 +10,6 @@
 	<script src="/wenxian2/Public/js/vue.js"></script>
 	<script src="/wenxian2/Public/js/swiper.min.js"></script>
 	<script src="/wenxian2/Public/js/element-ui.js"></script>
-	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>

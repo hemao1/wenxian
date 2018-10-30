@@ -10,6 +10,7 @@
 	<script src="/wenxian2/Public/js/vue.js"></script>
 	<script src="/wenxian2/Public/js/swiper.min.js"></script>
 	<script src="/wenxian2/Public/js/element-ui.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
 <header>
@@ -41,8 +42,8 @@
 			<div class="about-content-container width1200">
 				<el-breadcrumb separator-class="el-icon-arrow-right">
 					<el-breadcrumb-item>您的位置：</el-breadcrumb-item>
-					<el-breadcrumb-item><a href="index">首页</a></el-breadcrumb-item>
-					<el-breadcrumb-item><a href="information">美食资讯</a></el-breadcrumb-item>
+					<el-breadcrumb-item><a href="/wenxian2/index.php/Home/Index/index">首页</a></el-breadcrumb-item>
+					<el-breadcrumb-item><a href="/wenxian2/index.php/Home/Index/information">美食资讯</a></el-breadcrumb-item>
 					<el-breadcrumb-item>红烧螃蟹</el-breadcrumb-item>
 				</el-breadcrumb>
 			</div>
@@ -51,14 +52,12 @@
 			</div>
 		</div>
 		<div class="details-right-content">
-			<div class="text-content">
-				<h3>红烧螃蟹</h3>
+			<div class="text-content" v-for="(content,index) in contents">
+				<h3>{{ content.title }}</h3>
 				<h4>制作原料</h4>
-				<p>螃蟹4个，盐、糖、油、葱、姜、香菜、切面各少许。</p>
+				<p>{{ content.yuanliao }}</p>
 				<h4>制作步骤</h4>
-				<p>1、把螃蟹腹部的脐盖打开，把里面的东西用力挤干净，用刷子把蟹洗干净后，用刀一开为二。切面朝上放在小盆里备用。
-				<br/>	
-				2、锅里倒点油，烧热后把姜片爆香，然后加进4碗水，放盐和一点点糖，大火烧开后，逐块放进切好的蟹块，要先把蟹的切面放进汤里烫一下再整块放进汤里（这样可以保留多点蟹汁），加洋葱，然后合上盖煮15分钟左右。起锅前加入葱花和香菜末就可出锅了。</p>
+				<p>{{ content.xiangqing }}</p>
 			</div>
 		</div>
 	</div>
@@ -77,8 +76,29 @@
 <script>
 	new Vue({
 		el: '#information-details',
-		date: {
-
+		data: {
+			contents : []
+		},
+		created(val) {
+			let str = location.href; //取得整个地址栏
+			let num = str.indexOf("=");
+			let id = str.substr(num + 1); //取得所有参数
+			let idArr = 'http://47.92.37.138/index.php/Home/xiangqing/' + id;
+			console.log(idArr);
+			let self = this
+			$.ajax({
+				url: idArr,
+				type: 'GET',
+				dataType: 'JSONP',
+				success: function(res) {
+					let resLength = res.data.length
+					for(let i=0;i<resLength;i++){
+						self.contents.push(res.data[i]);
+					}
+					self.contents = res.data
+					console.log(JSON.stringify(res.data,null,4))
+				}
+			})
 		}
 	})
 </script>
