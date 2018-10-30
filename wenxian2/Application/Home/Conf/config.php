@@ -14,9 +14,14 @@ return array(
 		
 			//单条消息
 			 'dantiao/:id\d'   => 'Index/add',
-		    //多条消息
+		    //美食资讯
 		    'duotiao/xiaoxi' => 'Index/duotiao',
+		    //美食资讯详情
+		    'xiangqing/:id\d' => 'Index/xiangqing',
+		    //app接口
 		    'dantiao/xinxi' => 'Index/dantiao',
+
+		    
 		    
 	),
 
