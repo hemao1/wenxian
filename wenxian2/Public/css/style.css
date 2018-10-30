@@ -3,6 +3,7 @@ html,body,div,ul,li,h1,h2,h3,h4,h5,h6,a,img,p{
 	padding: 0;
 	list-style: none;
 	text-decoration: none;
+	outline: none;
 }
 body{
 	min-width: 1200px;
@@ -570,7 +571,7 @@ footer{
 .menu-content-box ul li{
 	margin-top: 40px;
 }
-.menu-content-box ul li > div{
+.menu-content-box ul li > a > div{
 	height: 215px;
 }
 .menu-content-box ul li img{
@@ -582,7 +583,7 @@ footer{
 .menu-content-box ul li:nth-of-type(11){
 	margin: 40px 60px;
 }
-.menu-content-box ul li > p{
+.menu-content-box ul li > a > p{
 	height: 68px;
 	line-height: 68px;
 	width: 358px;
@@ -591,7 +592,7 @@ footer{
 	color: #e03344;
 	transition: all 0.3s;
 }
-.menu-content-box ul li > p:hover{
+.menu-content-box ul li > a > p:hover{
 	transition: all 0.3s;
 	color: white;
 	background-color: #e03344;
@@ -660,12 +661,43 @@ footer{
 .details-right-content .text-content{
 	padding: 0 50px;
 	margin: 110px auto 30px auto;
+	height: 700px;
+	overflow-y: scroll;
 }
 .details-right-content h4{
 	font-size: 20px;
 	margin: 40px auto 20px auto;
 }
-
+.introduction-of-dishes{
+	margin-top: 20px;
+	height: 100px;
+	overflow-x: scroll;
+}
+.details-right-content hr{
+	border-top: solid 1px #e6e6e6;
+	border-bottom: 0 ;
+}
+.details-right-content .menu-small-nav{
+	justify-content: flex-start;
+}
+.details-right-content .menu-small-nav a{
+	border: solid 1px #e03344;
+	padding: 4px 20px;
+	margin: 20px 0 0 0;
+	color: #e03344;
+	transition: all 0.3s;
+}
+.recommend-menu{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+.recommend-menu li{
+	width: 45%;
+}
+.recommend-menu li img{
+	width: 100%;
+}
 
 
 

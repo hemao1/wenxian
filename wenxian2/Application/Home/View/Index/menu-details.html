@@ -1,0 +1,77 @@
+<block name="header"><include file="Public:header" /></block>
+	<div class="details-container" id="menu-details">
+		<div class="details-left-content">
+			<div class="about-content-container width1200">
+				<el-breadcrumb separator-class="el-icon-arrow-right">
+					<el-breadcrumb-item>您的位置：</el-breadcrumb-item>
+					<el-breadcrumb-item><a href="__URL__/index">首页</a></el-breadcrumb-item>
+					<el-breadcrumb-item><a href="__URL__/menu">菜单中心</a></el-breadcrumb-item>
+					<el-breadcrumb-item>白萝卜</el-breadcrumb-item>
+				</el-breadcrumb>
+			</div>
+			<div class="details-big-img-box">
+				<img src="__PUBLIC__/img/details-big-img.jpg">
+			</div>
+		</div>
+		<div class="details-right-content">
+			<div class="text-content">
+				<h3>白萝卜</h3>
+				<p class="introduction-of-dishes" >白萝卜含有多种微量元素，可增强机体免疫力，抑制癌细胞的生长。有助于体内废物的排除。</p>
+				<hr>
+				<div class="menu-small-nav">
+					<a>推荐菜品</a>
+				</div>
+				<ul class="recommend-menu">
+					<recommend-list v-for="(recommend,index) in menus" v-if="index < 6" :recommend="recommend"></recommend-list>
+				</ul>
+			</div>
+		</div>
+	</div>
+<block name="footer"><include file="Public:footer" /></block>
+<script>
+	Vue.component('recommend-list',{
+	props:[
+		'recommend'
+	],
+	template:   `<li>
+					<a href="__URL__/menu-details">
+						<div>
+							<img :src='recommend.imgs'>
+						</div>
+						<p>{{ recommend.tag }}</p>
+					</a>
+				</li>`
+	})
+	new Vue({
+		el: '#menu-details',
+		data: {
+			menus: [],
+			lists : [
+				{
+					imgs : '__PUBLIC__/img/menu-item-img.jpg',
+					tag : '凉拌海蜇1'
+				},{
+					imgs : '__PUBLIC__/img/menu-item-img.jpg',
+					tag : '凉拌海蜇2'
+				},{
+					imgs : '__PUBLIC__/img/menu-item-img.jpg',
+					tag : '凉拌海蜇3'
+				},{
+					imgs : '__PUBLIC__/img/menu-item-img.jpg',
+					tag : '凉拌海蜇4'
+				},{
+					imgs : '__PUBLIC__/img/menu-item-img.jpg',
+					tag : '凉拌海蜇5'
+				},{
+					imgs : '__PUBLIC__/img/menu-item-img.jpg',
+					tag : '凉拌海蜇6'
+				}
+			]
+		},
+		created(val) {
+			const { lists } = this
+			const arr = lists.slice((val-1)*12,12)
+			this.menus = arr
+		}
+	})
+</script>

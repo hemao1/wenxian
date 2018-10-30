@@ -40,8 +40,8 @@
 		<div class="about-content-container width1200">
 			<el-breadcrumb separator-class="el-icon-arrow-right">
 				<el-breadcrumb-item>您的位置：</el-breadcrumb-item>
-				<el-breadcrumb-item :to="{ path: '/' }"><a href="index.html">首页</a></el-breadcrumb-item>
-				<el-breadcrumb-item :to="{ path: '/information' }">菜单中心</el-breadcrumb-item>
+				<el-breadcrumb-item><a href="index.html">首页</a></el-breadcrumb-item>
+				<el-breadcrumb-item>菜单中心</el-breadcrumb-item>
 			</el-breadcrumb>
 		</div>
 		<div class="information-title-box">
@@ -53,7 +53,7 @@
 		</div>
 		<div class="menu-content-box width1200">
 			<ul>
-				<menu-list v-for="(menu,index) in menus" v-if="index < 12" :menu="menu" :key="menu"></menu-list>
+				<menu-list v-for="(menu,index) in menus" v-if="index < 12" :menu="menu"></menu-list>
 			</ul>
 		</div>
 		<!-- 分页 -->
@@ -87,10 +87,12 @@ Vue.component('menu-list',{
 		'menu'
 	],
 	template:   `<li>
-					<div>
-						<img :src='menu.imgs'>
-					</div>
-					<p>{{ menu.tag }}</p>
+					<a href="menu-details.html">
+						<div>
+							<img :src='menu.imgs'>
+						</div>
+						<p>{{ menu.tag }}</p>
+					</a>
 				</li>`
 })
 new Vue({
