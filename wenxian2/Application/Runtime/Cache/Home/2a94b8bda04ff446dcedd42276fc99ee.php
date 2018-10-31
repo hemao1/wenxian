@@ -70,26 +70,14 @@
 				<img src="/wenxian2/Public/img/1_45.png">
 				<div class="classic-gourmet-nav">
 					<ul>
-						<li v-for="(gourmet,index) in gourmetNav" @click="isShow=index;changeCon(index)" :class="{ colorRed:isRed == index}">{{ gourmet.gourmetTit }}</li>
+						<li v-for="(gourmet,index) in gourmetNav" @click="isShow=index;changeCon($event,index)" :class="{ colorRed:isRed == index}" ref="hiddenId" :type_id="gourmet.type_id">{{ gourmet.title }}</li>
 					</ul>
 				</div>
 				<div class="classic-gourmet-banner">
 					<div class="swiper-container" :class="{'swiper-container-hidden':isShow != 0}" id="swiper-1">
 						<div class="swiper-wrapper">
-							<div class="swiper-slide sweiper-img-box">
-								<img class="sweiper-img" src="/wenxian2/Public/img/1.jpg" title="图片信息">
-							</div>
-							<div class="swiper-slide sweiper-img-box">
-								<img class="sweiper-img" src="/wenxian2/Public/img/2.jpg" title="图片信息">
-							</div>
-							<div class="swiper-slide sweiper-img-box">
-								<img class="sweiper-img" src="/wenxian2/Public/img/3.jpg" title="图片信息">
-							</div>
-							<div class="swiper-slide sweiper-img-box">
-								<img class="sweiper-img" src="/wenxian2/Public/img/4.jpg" title="图片信息">
-							</div>
-							<div class="swiper-slide sweiper-img-box">
-								<img class="sweiper-img" src="/wenxian2/Public/img/5.jpg" title="图片信息">
+							<div class="swiper-slide swiper-img-box" v-for="(swiperClass,index) in swiperClasses">
+								<img class="swiper-img" :src="'/wenxian2/Public/img/' + swiperClass.imgs" title="图片信息">
 							</div>
 						</div>
 						<div class="swiper-button-prev swiper-button-white swiper-button-prev-1"></div>
@@ -97,20 +85,8 @@
 					</div>
 					<div class="swiper-container" :class="{'swiper-container-hidden':isShow != 1}" id="swiper-2">
 						<div class="swiper-wrapper">
-							<div class="swiper-slide sweiper-img-box">
-								<img class="sweiper-img" src="/wenxian2/Public/img/1.jpg" title="图片信息">
-							</div>
-							<div class="swiper-slide sweiper-img-box">
-								<img class="sweiper-img" src="/wenxian2/Public/img/2.jpg" title="图片信息">
-							</div>
-							<div class="swiper-slide sweiper-img-box">
-								<img class="sweiper-img" src="/wenxian2/Public/img/3.jpg" title="图片信息">
-							</div>
-							<div class="swiper-slide sweiper-img-box">
-								<img class="sweiper-img" src="/wenxian2/Public/img/4.jpg" title="图片信息">
-							</div>
-							<div class="swiper-slide sweiper-img-box">
-								<img class="sweiper-img" src="/wenxian2/Public/img/5.jpg" title="图片信息">
+							<div class="swiper-slide swiper-img-box" v-for="(swiperClass,index) in swiperClasses">
+								<img class="swiper-img" :src="'/wenxian2/Public/img/' + swiperClass.imgs" title="图片信息">
 							</div>
 						</div>
 						<div class="swiper-button-prev swiper-button-white swiper-button-prev-2"></div>
@@ -118,20 +94,8 @@
 					</div>
 					<div class="swiper-container" :class="{'swiper-container-hidden':isShow != 2}" id="swiper-3">
 						<div class="swiper-wrapper">
-							<div class="swiper-slide sweiper-img-box">
-								<img class="sweiper-img" src="/wenxian2/Public/img/1.jpg" title="图片信息">
-							</div>
-							<div class="swiper-slide sweiper-img-box">
-								<img class="sweiper-img" src="/wenxian2/Public/img/2.jpg" title="图片信息">
-							</div>
-							<div class="swiper-slide sweiper-img-box">
-								<img class="sweiper-img" src="/wenxian2/Public/img/3.jpg" title="图片信息">
-							</div>
-							<div class="swiper-slide sweiper-img-box">
-								<img class="sweiper-img" src="/wenxian2/Public/img/4.jpg" title="图片信息">
-							</div>
-							<div class="swiper-slide sweiper-img-box">
-								<img class="sweiper-img" src="/wenxian2/Public/img/5.jpg" title="图片信息">
+							<div class="swiper-slide swiper-img-box" v-for="(swiperClass,index) in swiperClasses">
+								<img class="swiper-img" :src="'/wenxian2/Public/img/' + swiperClass.imgs" title="图片信息">
 							</div>
 						</div>
 						<div class="swiper-button-prev swiper-button-white swiper-button-prev-3"></div>
@@ -139,20 +103,8 @@
 					</div>
 					<div class="swiper-container" :class="{'swiper-container-hidden':isShow != 3}" id="swiper-4">
 						<div class="swiper-wrapper">
-							<div class="swiper-slide sweiper-img-box">
-								<img class="sweiper-img" src="/wenxian2/Public/img/1.jpg" title="图片信息">
-							</div>
-							<div class="swiper-slide sweiper-img-box">
-								<img class="sweiper-img" src="/wenxian2/Public/img/2.jpg" title="图片信息">
-							</div>
-							<div class="swiper-slide sweiper-img-box">
-								<img class="sweiper-img" src="/wenxian2/Public/img/3.jpg" title="图片信息">
-							</div>
-							<div class="swiper-slide sweiper-img-box">
-								<img class="sweiper-img" src="/wenxian2/Public/img/4.jpg" title="图片信息">
-							</div>
-							<div class="swiper-slide sweiper-img-box">
-								<img class="sweiper-img" src="/wenxian2/Public/img/5.jpg" title="图片信息">
+							<div class="swiper-slide swiper-img-box" v-for="(swiperClass,index) in swiperClasses">
+								<img class="swiper-img" :src="'/wenxian2/Public/img/' + swiperClass.imgs" title="图片信息">
 							</div>
 						</div>
 						<div class="swiper-button-prev swiper-button-white swiper-button-prev-4"></div>
@@ -223,13 +175,13 @@
 		position: absolute !important;
 		width: 1200px !important;
 	}
-	.sweiper-img-box{
+	.swiper-img-box{
 		width: 160px !important;
 		height: 200px !important;
 		margin: 40px;
 		overflow: hidden;
 	}
-	.sweiper-img{
+	.swiper-img{
 		width: auto;
 		height: 100%;
 	}
@@ -250,34 +202,61 @@
 		border-bottom: solid 2px #e03344 !important;
 	}
 </style>
-<script src="/wenxian2/Public/js/vue.js"></script>
-<script src="/wenxian2/Public/js/swiper.min.js"></script>
-<script src="/wenxian2/Public/js/element-ui.js"></script>
 <script>
-	var wenxian = new Vue({
+	new Vue({
 		el: '#index',
 		data: {
-			gourmetNav: [
-				{
-					gourmetTit : '凉菜系列'
-				},
-				{
-					gourmetTit : '热菜系列'
-				},
-				{
-					gourmetTit : '甜点系列'
-				},
-				{
-					gourmetTit : '饮品系列'
-				}
-			],
+			gourmetNav: [],
+			swiperClasses: [],
 			isShow: 0,
 			isRed: -1,
 			isHidden: 0
 		},
+		created(val) {
+			let self = this
+			$.ajax({
+				url: 'http://47.92.37.138/index.php/Home/leixing/xinxi',
+				type: 'GET',
+				dataType: 'JSONP',
+				success: function(res) {
+					let resLength = res.data.length
+					for(let i=0;i<resLength;i++){
+						self.gourmetNav.push(res.data[i]);
+					}
+					$.ajax({
+						url: 'http://47.92.37.138/index.php/Home/leixing/' + self.gourmetNav[0].type_id,
+						type: 'GET',
+						dataType: 'JSONP',
+						success: function(res) {
+							let resLength = res.data.length
+							for(let i=0;i<resLength;i++){
+								self.swiperClasses.push(res.data[i]);
+							}
+						}
+					})
+				}
+			})
+		},
 		methods:{
-			changeCon(index){
-				this.isRed=index
+			changeCon(e,index){
+				this.isRed = index
+				let self = this
+				let typeId = e.target.getAttribute('type_id')
+				let idArr = 'http://47.92.37.138/index.php/Home/leixing/' + typeId
+				$.ajax({
+					url: idArr,
+					type: 'GET',
+					dataType: 'JSONP',
+					success: function(res) {
+						self.swiperClasses = []
+						let resLength = res.data.length
+						for(let i=0;i<resLength;i++){
+							self.swiperClasses.push(res.data[i]);
+							console.log(res.data[i])
+						}
+					}
+				})
+				// console.log(gourmetNavLength)
 			}
 		}
 	})

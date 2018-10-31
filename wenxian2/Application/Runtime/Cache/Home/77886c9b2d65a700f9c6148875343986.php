@@ -84,7 +84,6 @@
 			let num = str.indexOf("=");
 			let id = str.substr(num + 1); //取得所有参数
 			let idArr = 'http://47.92.37.138/index.php/Home/xiangqing/' + id;
-			console.log(idArr);
 			let self = this
 			$.ajax({
 				url: idArr,
@@ -96,7 +95,6 @@
 						self.contents.push(res.data[i]);
 					}
 					self.contents = res.data
-					console.log(JSON.stringify(res.data,null,4))
 				}
 			})
 		}

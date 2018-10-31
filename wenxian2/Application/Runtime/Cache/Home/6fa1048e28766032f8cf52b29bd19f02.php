@@ -58,7 +58,7 @@
 						<p class="content-text">{{ informationItem.content }}</p>
 						<p class="information-date">{{ informationItem.time }}</p>
 						<div class="more-btn-box information-detail-btn width1200">
-							<a :href="'/wenxian2/index.php/Home/Index/information-details?id=' + informationItem.id" @click="seeDetails">查看详情</a>
+							<a :href="'/wenxian2/index.php/Home/Index/information-details?id=' + informationItem.id">查看详情</a>
 						</div>
 					</div>
 				</div>
@@ -95,17 +95,6 @@
 			informationItems:[]
 		},
 		created(val) {
-			// 为给定 ID 的 user 创建请求
-			// axios.get('http://47.92.37.138/index.php/Home/duotiao/xiaoxi',{withCredentials:true})
-			// 	.then(function(response) {
-			// 		console.log(response);
-			// 	})
-			// 	.catch(function(error) {
-			// 		console.log(error);
-			// });
-			// const { lists } = this
-			// const arr = lists.slice((val-1)*6,6)
-			// this.informationItems = arr
 			let self = this
 			$.ajax({
 				url: 'http://47.92.37.138/index.php/Home/duotiao/xiaoxi',
@@ -135,9 +124,6 @@
 						self.informationItems=arr
 					}
 				})
-			},
-			seeDetails(){
-				console.log(1)
 			}
 		}
 	})
