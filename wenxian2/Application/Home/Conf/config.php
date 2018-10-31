@@ -20,9 +20,11 @@ return array(
 		    'xiangqing/:id\d' => 'Index/xiangqing',
 		    //app接口
 		    'dantiao/xinxi' => 'Index/dantiao',
+		    //首页类型
+		    'leixing/xinxi' => 'Index/leixing',
+		    //首页类型菜品图片地址
+		    'leixing/:type_id\d' => 'Index/lunbo',
 
-		    
-		    
 	),
 
 	'TMPL_CACHE_ON' => false,//禁止模板编译缓存 

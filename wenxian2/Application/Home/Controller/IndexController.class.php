@@ -114,5 +114,56 @@ class IndexController extends Controller {
 
      }
 
+     //轮播图
+     public function lunbo($type_id = 0)
+     {
+
+        $data = M('type as a')->join('shouye as b on b.type_id = a.type_id')->where(array('a.type_id'=>$type_id))->select();
+
+         if($data)
+        {
+
+            $code = 200;
+            $message = 'success';
+
+        }
+        else
+        {
+
+            $code = 404;
+            $message = 'fail';
+        }
+
+        $result = array('code'=>$code, 'message'=>$message,'data'=>$data);
+
+        $this->ajaxReturn($result,'JSONP');
+
+     }
+     //标题
+     public function leixing()
+     {
+
+        $data =M('type')->select();
+
+        if($data)
+        {
+
+            $code = 200;
+            $message = 'success';
+
+        }
+        else
+        {
+
+            $code = 404;
+            $message = 'fail';
+        }
+
+        $result = array('code'=>$code, 'message'=>$message,'data'=>$data);
         
+        $this->ajaxReturn($result,'JSONP');
+
+     }
+
+   
 }
