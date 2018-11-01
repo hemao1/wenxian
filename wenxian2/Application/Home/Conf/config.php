@@ -27,6 +27,8 @@ return array(
 		    'memu/xinxi' => 'Index/memu',
 		    //推荐菜品
 		    'memuhots/xinxi' => 'Index/memuhots',
+		    //推荐菜品详情
+		     'memuxiang/:id\d' => 'Index/memuxiang',
 
 	),
 

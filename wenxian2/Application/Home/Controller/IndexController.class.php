@@ -164,6 +164,7 @@ class IndexController extends Controller {
         $this->ajaxReturn($result,'JSONP');
 
      }
+     //菜单中心接口
      public function memu()
      {
 
@@ -189,7 +190,7 @@ class IndexController extends Controller {
 
 
      }
-
+     //推荐菜品接口
      public function memuhots()
      {
 
@@ -212,6 +213,30 @@ class IndexController extends Controller {
 
         $result = array('code'=>$code, 'message'=>$message,'data'=>$data);
         
+        $this->ajaxReturn($result,'JSONP');
+
+     }
+
+     //菜品详情信息接口
+     public function memuxiang($id = 0)
+     {
+        $data =M('memu')->where(array('id'=>$id))->select();
+
+        if($data)
+        {
+            $code = 200;
+            $message = 'success';
+
+        }
+        else
+        {
+
+            $code = 404;
+            $message = 'fail';
+
+        }
+        $result = array('code'=>$code, 'message'=>$message, 'data'=>$data);
+
         $this->ajaxReturn($result,'JSONP');
 
      }
