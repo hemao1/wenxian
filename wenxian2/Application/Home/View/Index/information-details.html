@@ -6,7 +6,7 @@
 					<el-breadcrumb-item>您的位置：</el-breadcrumb-item>
 					<el-breadcrumb-item><a href="__URL__/index">首页</a></el-breadcrumb-item>
 					<el-breadcrumb-item><a href="__URL__/information">美食资讯</a></el-breadcrumb-item>
-					<el-breadcrumb-item>红烧螃蟹</el-breadcrumb-item>
+					<el-breadcrumb-item v-for="(content,index) in contents" :key="content.id">{{ content.title }}</el-breadcrumb-item>
 				</el-breadcrumb>
 			</div>
 			<div class="details-big-img-box" v-for="(content,index) in contents">
@@ -14,7 +14,7 @@
 			</div>
 		</div>
 		<div class="details-right-content">
-			<div class="text-content" v-for="(content,index) in contents">
+			<div class="text-content" v-for="(content,index) in contents" :key="content.id">
 				<h3>{{ content.title }}</h3>
 				<h4>制作原料</h4>
 				<p>{{ content.yuanliao }}</p>
@@ -41,10 +41,6 @@
 				type: 'GET',
 				dataType: 'JSONP',
 				success: function(res) {
-					let resLength = res.data.length
-					for(let i=0;i<resLength;i++){
-						self.contents.push(res.data[i]);
-					}
 					self.contents = res.data
 				}
 			})

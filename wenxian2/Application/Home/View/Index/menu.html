@@ -11,12 +11,18 @@
 			<img src="__PUBLIC__/img/menu.png">
 		</div>
 		<div class="menu-small-nav">
-			<a href="javascript:void(0)">全部</a>
-			<a href="javascript:void(0)">推荐菜品</a>
+			<a v-for="(tab,index) in tabs" :key="tab.hots" class="tabClass" :class="{ menuTab : isRed == index }" @click="changeTab($event,index)">{{ tab.title }}</a>
 		</div>
 		<div class="menu-content-box width1200">
 			<ul>
-				<menu-list v-for="(menu,index) in menus" v-if="index < 12" :menu="menu"></menu-list>
+				<li v-for="(menu,index) in menus" :key="menu.id" v-if="index < 12">
+					<a :href="'__URL__/menu-details?id=' + menu.id">
+						<div class="imgs-box">
+							<img :src="'__PUBLIC__/img/' + menu.imgs">
+						</div>
+						<p>{{ menu.name }}</p>
+					</a>
+				</li>
 			</ul>
 		</div>
 		<!-- 分页 -->
@@ -27,107 +33,101 @@
 			@current-change="currentChange"
 			:page-size="12"
 			layout="prev, pager, next"
-			:total="20">
+			:total="totalDataNumber">
 			</el-pagination>
 		</div>
 	</div>
 </div>
 <block name="footer"><include file="Public:footer" /></block>
 <script>
-Vue.component('menu-list',{
-	props:[
-		'menu'
-	],
-	template:   `<li>
-					<a href="__URL__/menu-details">
-						<div>
-							<img :src='menu.imgs'>
-						</div>
-						<p>{{ menu.tag }}</p>
-					</a>
-				</li>`
-})
-new Vue({
-	el: '#menu',
-	data: {
-		menus: [],
-		lists : [
-			{
-				imgs : '__PUBLIC__/img/menu-item-img.jpg',
-				tag : '凉拌海蜇1'
-			},{
-				imgs : '__PUBLIC__/img/menu-item-img.jpg',
-				tag : '凉拌海蜇2'
-			},{
-				imgs : '__PUBLIC__/img/menu-item-img.jpg',
-				tag : '凉拌海蜇3'
-			},{
-				imgs : '__PUBLIC__/img/menu-item-img.jpg',
-				tag : '凉拌海蜇4'
-			},{
-				imgs : '__PUBLIC__/img/menu-item-img.jpg',
-				tag : '凉拌海蜇5'
-			},{
-				imgs : '__PUBLIC__/img/menu-item-img.jpg',
-				tag : '凉拌海蜇6'
-			},{
-				imgs : '__PUBLIC__/img/menu-item-img.jpg',
-				tag : '凉拌海蜇7'
-			},{
-				imgs : '__PUBLIC__/img/menu-item-img.jpg',
-				tag : '凉拌海蜇8'
-			},{
-				imgs : '__PUBLIC__/img/menu-item-img.jpg',
-				tag : '凉拌海蜇9'
-			},{
-				imgs : '__PUBLIC__/img/menu-item-img.jpg',
-				tag : '凉拌海蜇10'
-			},{
-				imgs : '__PUBLIC__/img/menu-item-img.jpg',
-				tag : '凉拌海蜇11'
-			},{
-				imgs : '__PUBLIC__/img/menu-item-img.jpg',
-				tag : '凉拌海蜇12'
-			},{
-				imgs : '__PUBLIC__/img/menu-item-img.jpg',
-				tag : '凉拌海蜇13'
-			},{
-				imgs : '__PUBLIC__/img/menu-item-img.jpg',
-				tag : '凉拌海蜇14'
-			},{
-				imgs : '__PUBLIC__/img/menu-item-img.jpg',
-				tag : '凉拌海蜇15'
-			},{
-				imgs : '__PUBLIC__/img/menu-item-img.jpg',
-				tag : '凉拌海蜇16'
-			},{
-				imgs : '__PUBLIC__/img/menu-item-img.jpg',
-				tag : '凉拌海蜇17'
-			},{
-				imgs : '__PUBLIC__/img/menu-item-img.jpg',
-				tag : '凉拌海蜇18'
-			},{
-				imgs : '__PUBLIC__/img/menu-item-img.jpg',
-				tag : '凉拌海蜇19'
-			},{
-				imgs : '__PUBLIC__/img/menu-item-img.jpg',
-				tag : '凉拌海蜇20'
+	new Vue({
+		el: '#menu',
+		data: {
+			isRed : 0,
+			total : 0,
+			hots : 0,
+			totalDataNumber: 0,
+			tabs : [
+				{
+					title : '全部'
+				},{
+					title : '推荐菜品'
+				}
+			],
+			menus : []
+		},
+		created(val) {
+			let self = this
+			$.ajax({
+				url: 'http://47.92.37.138/index.php/Home/memu/xinxi',
+				type: 'GET',
+				dataType: 'JSONP',
+				success: function(res) {
+					let dataLength = res.data.length
+					self.totalDataNumber = dataLength
+					const arr = res.data.slice((val-1)*12,12)
+					self.menus = arr
+				}
+			})
+		},
+		methods: {
+			changeTab(e,index) {
+				this.isRed = index
+				let self = this
+				if ( index == 1 ) {
+					$.ajax({
+						url: 'http://47.92.37.138/index.php/Home/memuhots/xinxi',
+						type: 'GET',
+						dataType: 'JSONP',
+						success: function(res) {
+							let dataLength = res.data.length
+							self.totalDataNumber = dataLength
+							self.hots = res.data[0].hots
+							const arr = res.data.slice((e-1)*12,12)
+							self.menus = arr
+						}
+					})
+				} else {
+					$.ajax({
+						url: 'http://47.92.37.138/index.php/Home/memu/xinxi',
+						type: 'GET',
+						dataType: 'JSONP',
+						success: function(res) {
+							let dataLength = res.data.length
+							self.totalDataNumber = dataLength
+							self.hots = res.data[0].hots
+							const arr = res.data.slice((e-1)*12,12)
+							self.menus = arr
+						}
+					})
+				}
+			},
+			currentChange(current) {
+				let self = this
+				if ( self.hots == 1 ) {
+					$.ajax({
+						url: 'http://47.92.37.138/index.php/Home/memuhots/xinxi',
+						type: 'GET',
+						dataType: 'JSONP',
+						success: function(res) {
+							const arr = res.data.slice((current-1)*12,current*12)
+							self.menus = arr
+						}
+					})
+				} else {
+					$.ajax({
+						url: 'http://47.92.37.138/index.php/Home/memu/xinxi',
+						type: 'GET',
+						dataType: 'JSONP',
+						success: function(res) {
+							const arr = res.data.slice((current-1)*12,current*12)
+							self.menus = arr
+						}
+					})
+				}
 			}
-		]
-	},
-	created(val) {
-		const { lists } = this
-		const arr = lists.slice((val-1)*12,12)
-		this.menus = arr
-	},
-	methods: {
-		currentChange(current) {
-			const { lists } = this
-			const arr = lists.slice((current-1)*12,current*12)
-			this.menus = arr
 		}
-	}
-})
+	})
 </script>
 </body>
 </html>

@@ -11,7 +11,7 @@
 			<img src="__PUBLIC__/img/information-title.png">
 		</div>
 		<div class="information-list-container width1200">
-			<div class="information-list-box" v-for="(informationItem,index) in informationItems" v-if='index < 6' :key="index">
+			<div class="information-list-box" v-for="(informationItem,index) in informationItems" v-if='index < 6' :key="informationItem.id">
 					<div class="imgs">
 						<img :src="'__PUBLIC__/img/' + informationItem.imgs">
 					</div>
@@ -26,16 +26,16 @@
 				</div>
 		</div>
 		<!-- 分页 -->
-		<div class="block">
+		<!-- <div class="block">
 		  	<el-pagination
 		  		prev-text="上一页"
 				next-text="下一页"
 		  		@current-change='currentChange'
 		    	layout="prev, pager, next"
 				:page-size="6"
-		    	:total="10">
+		    	:total="6">
 		  	</el-pagination>
-		</div>
+		</div> -->
 	</div>
 </div>
 <block name="footer"><include file="Public:footer" /></block>
@@ -52,10 +52,8 @@
 				type: 'GET',
 				dataType: 'JSONP',
 				success: function(res) {
-					let resLength = res.data.length
-					for(let i=0;i<resLength;i++){
-						self.informationItems.push(res.data[i]);
-					}
+					const arr = res.data.slice((val-1)*6,6)
+					self.informationItems=arr
 				}
 			})
 		},
@@ -67,10 +65,6 @@
 					type: 'GET',
 					dataType: 'JSONP',
 					success: function(res) {
-						let resLength = res.data.length
-						for(let i=0;i<resLength;i++){
-							self.informationItems.push(res.data[i]);
-						}
 						const arr = res.data.slice((current-1)*6,current*6)
 						self.informationItems=arr
 					}

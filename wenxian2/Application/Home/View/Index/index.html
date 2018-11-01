@@ -24,7 +24,7 @@
 				</li>
 			</ul>
 			<div class="more-btn-box width1200">
-				<a href="javascript:void(0)">企业文化</a>
+				<a href="__URL__/about">企业文化</a>
 			</div>
 		</div>
 		<div class="classic-gourmet-container">
@@ -32,45 +32,18 @@
 				<img src="__PUBLIC__/img/1_45.png">
 				<div class="classic-gourmet-nav">
 					<ul>
-						<li v-for="(gourmet,index) in gourmetNav" @click="isShow=index;changeCon($event,index)" :class="{ colorRed:isRed == index}" ref="hiddenId" :type_id="gourmet.type_id">{{ gourmet.title }}</li>
+						<li v-for="(gourmet,index) in gourmetNav" :key="gourmet.id" @click="changeCon($event,index)" :class="{ colorRed:isRed == index }" :type_id="gourmet.type_id">{{ gourmet.title }}</li>
 					</ul>
 				</div>
 				<div class="classic-gourmet-banner">
 					<div class="swiper-container" :class="{'swiper-container-hidden':isShow != 0}" id="swiper-1">
 						<div class="swiper-wrapper">
-							<div class="swiper-slide swiper-img-box" v-for="(swiperClass,index) in swiperClasses">
-								<img class="swiper-img" :src="'__PUBLIC__/img/' + swiperClass.imgs" title="图片信息">
+							<div class="swiper-slide swiper-img-box" v-for="(swiperClass,index) in swiperClasses" :key="swiperClass.id">
+								<img class="swiper-img" :src="'__PUBLIC__/img/' + swiperClass.imgs" :title="swiperClass.name">
 							</div>
 						</div>
 						<div class="swiper-button-prev swiper-button-white swiper-button-prev-1"></div>
 						<div class="swiper-button-next swiper-button-white swiper-button-next-1"></div>
-					</div>
-					<div class="swiper-container" :class="{'swiper-container-hidden':isShow != 1}" id="swiper-2">
-						<div class="swiper-wrapper">
-							<div class="swiper-slide swiper-img-box" v-for="(swiperClass,index) in swiperClasses">
-								<img class="swiper-img" :src="'__PUBLIC__/img/' + swiperClass.imgs" title="图片信息">
-							</div>
-						</div>
-						<div class="swiper-button-prev swiper-button-white swiper-button-prev-2"></div>
-						<div class="swiper-button-next swiper-button-white swiper-button-next-2"></div>
-					</div>
-					<div class="swiper-container" :class="{'swiper-container-hidden':isShow != 2}" id="swiper-3">
-						<div class="swiper-wrapper">
-							<div class="swiper-slide swiper-img-box" v-for="(swiperClass,index) in swiperClasses">
-								<img class="swiper-img" :src="'__PUBLIC__/img/' + swiperClass.imgs" title="图片信息">
-							</div>
-						</div>
-						<div class="swiper-button-prev swiper-button-white swiper-button-prev-3"></div>
-						<div class="swiper-button-next swiper-button-white swiper-button-next-3"></div>
-					</div>
-					<div class="swiper-container" :class="{'swiper-container-hidden':isShow != 3}" id="swiper-4">
-						<div class="swiper-wrapper">
-							<div class="swiper-slide swiper-img-box" v-for="(swiperClass,index) in swiperClasses">
-								<img class="swiper-img" :src="'__PUBLIC__/img/' + swiperClass.imgs" title="图片信息">
-							</div>
-						</div>
-						<div class="swiper-button-prev swiper-button-white swiper-button-prev-4"></div>
-						<div class="swiper-button-next swiper-button-white swiper-button-next-4"></div>
 					</div>
 				</div>
 			</div>
@@ -120,12 +93,6 @@
 </div>
 <block name="footer"><include file="Public:footer" /></block>
 <style>
-	.swiper-container-hidden {
-		visibility: hidden;
-		z-index: -1 !important;
-		position: absolute !important;
-		width: 1200px !important;
-	}
 	.swiper-img-box{
 		width: 160px !important;
 		height: 200px !important;
@@ -160,29 +127,41 @@
 			gourmetNav: [],
 			swiperClasses: [],
 			isShow: 0,
-			isRed: -1,
-			isHidden: 0
+			isRed: 0
 		},
 		created(val) {
 			let self = this
 			$.ajax({
 				url: 'http://47.92.37.138/index.php/Home/leixing/xinxi',
 				type: 'GET',
+				async:false,
 				dataType: 'JSONP',
 				success: function(res) {
-					let resLength = res.data.length
-					for(let i=0;i<resLength;i++){
-						self.gourmetNav.push(res.data[i]);
-					}
+					self.gourmetNav = res.data
 					$.ajax({
 						url: 'http://47.92.37.138/index.php/Home/leixing/' + self.gourmetNav[0].type_id,
 						type: 'GET',
+						async:false,
 						dataType: 'JSONP',
 						success: function(res) {
-							let resLength = res.data.length
-							for(let i=0;i<resLength;i++){
-								self.swiperClasses.push(res.data[i]);
-							}
+							self.swiperClasses = res.data;
+							self.$nextTick(function () {
+								var mySwiper1 = new Swiper('#swiper-1', {
+									slidesPerView : 5,
+									slidesPerGroup : 5,
+									initialSlide: 0,
+									width: 1200,
+									direction: 'horizontal', // 垂直切换选项
+									loop: true, // 循环模式选项
+									autoplay: true,
+									observer:true,//修改swiper自己或子元素时，自动初始化swiper
+									observeParents:true,//修改swiper的父元素时，自动初始化swiper
+									navigation: {
+									  nextEl: '.swiper-button-next-1',
+									  prevEl: '.swiper-button-prev-1',
+									}
+								})
+							})
 						}
 					})
 				}
@@ -197,73 +176,31 @@
 				$.ajax({
 					url: idArr,
 					type: 'GET',
+					async:false,
 					dataType: 'JSONP',
 					success: function(res) {
 						self.swiperClasses = []
-						let resLength = res.data.length
-						for(let i=0;i<resLength;i++){
-							self.swiperClasses.push(res.data[i]);
-						}
+						self.swiperClasses = res.data;
+						self.$nextTick(function () {
+							var mySwiper1 = new Swiper('#swiper-1', {
+								slidesPerView : 5,
+								slidesPerGroup : 5,
+								initialSlide: 0,
+								width: 1200,
+								direction: 'horizontal', // 垂直切换选项
+								loop: true, // 循环模式选项
+								autoplay: true,
+								observer:true,//修改swiper自己或子元素时，自动初始化swiper
+								observeParents:true,//修改swiper的父元素时，自动初始化swiper
+								navigation: {
+								  nextEl: '.swiper-button-next-1',
+								  prevEl: '.swiper-button-prev-1',
+								}
+							})
+						})
 					}
 				})
 			}
-		}
-	})
-
-	var mySwiper = new Swiper ('#swiper-1', {
-		slidesPerView : 5,
-		slidesPerGroup : 5,
-		width: 1200,
-		direction: 'horizontal', // 垂直切换选项
-		loop: true, // 循环模式选项
-		autoplay: true,
-		observer:true,//修改swiper自己或子元素时，自动初始化swiper
-		observeParents:true,//修改swiper的父元素时，自动初始化swiper
-		navigation: {
-		  nextEl: '.swiper-button-next-1',
-		  prevEl: '.swiper-button-prev-1',
-		}
-	})
-	var mySwiper = new Swiper ('#swiper-2', {
-		slidesPerView : 5,
-		slidesPerGroup : 5,
-		width: 1200,
-		direction: 'horizontal', // 垂直切换选项
-		loop: true, // 循环模式选项
-		autoplay: true,
-		observer:true,//修改swiper自己或子元素时，自动初始化swiper
-		observeParents:true,//修改swiper的父元素时，自动初始化swiper
-		navigation: {
-		  nextEl: '.swiper-button-next-2',
-		  prevEl: '.swiper-button-prev-2',
-		}
-	})
-	var mySwiper = new Swiper ('#swiper-3', {
-		slidesPerView : 5,
-		slidesPerGroup : 5,
-		width: 1200,
-		direction: 'horizontal', // 垂直切换选项
-		loop: true, // 循环模式选项
-		autoplay: true,
-		observer:true,//修改swiper自己或子元素时，自动初始化swiper
-		observeParents:true,//修改swiper的父元素时，自动初始化swiper
-		navigation: {
-		  nextEl: '.swiper-button-next-3',
-		  prevEl: '.swiper-button-prev-3',
-		}
-	})
-	var mySwiper = new Swiper ('#swiper-4', {
-		slidesPerView : 5,
-		slidesPerGroup : 5,
-		width: 1200,
-		direction: 'horizontal', // 垂直切换选项
-		loop: true, // 循环模式选项
-		autoplay: true,
-		observer:true,//修改swiper自己或子元素时，自动初始化swiper
-		observeParents:true,//修改swiper的父元素时，自动初始化swiper
-		navigation: {
-		  nextEl: '.swiper-button-next-4',
-		  prevEl: '.swiper-button-prev-4',
 		}
 	})
 </script>

@@ -571,8 +571,10 @@ footer{
 .menu-content-box ul li{
 	margin-top: 40px;
 }
-.menu-content-box ul li > a > div{
+.menu-content-box ul li .imgs-box{
+	overflow: hidden;
 	height: 215px;
+	width: 360px;
 }
 .menu-content-box ul li img{
 	width: 100%;
@@ -590,6 +592,9 @@ footer{
 	text-align: center;
 	border: solid 1px #e03344;
 	color: #e03344;
+	background-color: white;
+	z-index: 1000;
+	position: relative;
 	transition: all 0.3s;
 }
 .menu-content-box ul li > a > p:hover{
@@ -602,13 +607,16 @@ footer{
 	justify-content: center;
 }
 .menu-small-nav a{
+	cursor: pointer;
+}
+.tabClass{
 	border: solid 1px #e03344;
 	padding: 6px 30px;
 	margin: 30px 20px 0 20px;
 	color: #e03344;
 	transition: all 0.3s;
 }
-.menu-small-nav a:hover{
+.tabClass:hover{
 	border: solid 1px #e03344;
 	color: #fff;
 	background-color: #e03344;
@@ -616,6 +624,12 @@ footer{
 }
 .menu-small-nav a:last-child{
 	margin-right: 0;
+}
+.menuTab{
+	border: solid 1px #e03344;
+	background-color: #e03344;
+	color: #fff;
+	transition: all 0.3s;
 }
 
 /* ContactUs */
@@ -719,6 +733,9 @@ footer{
 	color: white;
 	background-color: #e03344;
 }
+
+/* 重要活动详情页 */
+
 
 
 
