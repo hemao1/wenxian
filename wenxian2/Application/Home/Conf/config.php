@@ -8,7 +8,6 @@ return array(
 	'DB_PORT'   => 3306, // 端口
 	'DB_PREFIX' => '', // 数据库表前缀 
 	'DB_CHARSET'=> 'utf8', // 字符集
-
 	'URL_ROUTER_ON'   => true, //开启路由
 	'URL_ROUTE_RULES' => array( //定义路由规则 
 		
@@ -24,6 +23,10 @@ return array(
 		    'leixing/xinxi' => 'Index/leixing',
 		    //首页类型菜品图片地址
 		    'leixing/:type_id\d' => 'Index/lunbo',
+		    //菜单中心
+		    'memu/xinxi' => 'Index/memu',
+		    //推荐菜品
+		    'memuhots/xinxi' => 'Index/memuhots',
 
 	),
 

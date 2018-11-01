@@ -164,6 +164,56 @@ class IndexController extends Controller {
         $this->ajaxReturn($result,'JSONP');
 
      }
+     public function memu()
+     {
 
-   
+        $data =M('memu')->select();
+
+        if($data)
+        {
+
+            $code = 200;
+            $message = 'success';
+
+        }
+        else
+        {
+
+            $code = 404;
+            $message = 'fail';
+        }
+
+        $result = array('code'=>$code, 'message'=>$message,'data'=>$data);
+        
+        $this->ajaxReturn($result,'JSONP');
+
+
+     }
+
+     public function memuhots()
+     {
+
+        $data =M('memu')->where(array('hots'=>'1'))->select();
+
+        if($data)
+        {
+
+            $code = 200;
+            $message = 'success';
+
+        }
+        else
+        {
+
+            $code = 404;
+            $message = 'fail';
+
+        }
+
+        $result = array('code'=>$code, 'message'=>$message,'data'=>$data);
+        
+        $this->ajaxReturn($result,'JSONP');
+
+     }
+
 }
