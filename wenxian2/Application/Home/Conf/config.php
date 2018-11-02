@@ -32,9 +32,11 @@ return array(
 		    //重要活动标题接口
 		    'activity/xinxi' => 'Index/huodong',
 		    //重要活动详情接口
-		    'activityxiang/:id\d' => 'Index/huodongxiang',
+		    'activityxiang/:id\d/:token' => 'Index/huodongxiang',
 		    //宴请活动接口
 		    'yanqing/xinxi' => 'Index/yanqing',
+		    //验证token
+		    'yanzheng/:id\d/:token' => 'Index/yanzheng',
 
 	),
 

@@ -220,6 +220,7 @@ class IndexController extends Controller {
      //菜品详情信息接口
      public function memuxiang($id = 0)
      {
+
         $data =M('memu')->where(array('id'=>$id))->select();
 
         if($data)
@@ -266,27 +267,32 @@ class IndexController extends Controller {
 
     }
 
-    public function huodongxiang($id = 0)
+    public function huodongxiang($id = 0, $token ='')
     {
 
-
-        $data =M('activity')->where(array('id'=>$id))->select();
-
-         if($data)
-         {
-            $code = 200;
-            $message = 'success';
-
-         }
-        else
+        $key='fe51bfa9646fa550a9b13728589d16bb';
+        $name=date('Y-m-d');
+        $miyao =$key.$name; 
+        $user_token = md5($miyao);
+        if($user_token != $token)
         {
-
             $code = 404;
+
             $message = 'fail';
 
-        }
+            $result = array('code'=>$code, 'message'=>$message, 'data'=>$data);
 
-        $result = array('code'=>$code, 'message'=>$message, 'data'=>$data);
+        }
+        else
+        {
+            $code = 200;
+
+            $message = 'success';
+
+            $data =M('activity')->where(array('id'=>$id))->select();
+          
+            $result = array('code'=>$code, 'message'=>$message, 'data'=>$data);
+        }
 
         $this->ajaxReturn($result,'JSONP');
 
@@ -317,6 +323,5 @@ class IndexController extends Controller {
         $this->ajaxReturn($result,'JSONP');
 
     }
-
 
 }
