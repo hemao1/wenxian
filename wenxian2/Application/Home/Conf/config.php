@@ -15,20 +15,26 @@ return array(
 			 'dantiao/:id\d'   => 'Index/add',
 		    //美食资讯
 		    'duotiao/xiaoxi' => 'Index/duotiao',
-		    //美食资讯详情
+		     //美食资讯详情
 		    'xiangqing/:id\d' => 'Index/xiangqing',
-		    //app接口
+		     //app接口
 		    'dantiao/xinxi' => 'Index/dantiao',
-		    //首页类型
+		     //首页类型
 		    'leixing/xinxi' => 'Index/leixing',
-		    //首页类型菜品图片地址
+		     //首页类型菜品图片地址
 		    'leixing/:type_id\d' => 'Index/lunbo',
-		    //菜单中心
+		     //菜单中心
 		    'memu/xinxi' => 'Index/memu',
-		    //推荐菜品
+		     //推荐菜品
 		    'memuhots/xinxi' => 'Index/memuhots',
-		    //推荐菜品详情
-		     'memuxiang/:id\d' => 'Index/memuxiang',
+		     //推荐菜品详情
+		    'memuxiang/:id\d' => 'Index/memuxiang',
+		    //重要活动标题接口
+		    'activity/xinxi' => 'Index/huodong',
+		    //重要活动详情接口
+		    'activityxiang/:id\d' => 'Index/huodongxiang',
+		    //宴请活动接口
+		    'yanqing/xinxi' => 'Index/yanqing',
 
 	),
 

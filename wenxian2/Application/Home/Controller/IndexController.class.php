@@ -239,6 +239,84 @@ class IndexController extends Controller {
 
         $this->ajaxReturn($result,'JSONP');
 
-     }
+    }
+
+    public function huodong()
+    {
+
+        $data =M('activity')->select();
+
+         if($data)
+         {
+            $code = 200;
+            $message = 'success';
+
+         }
+        else
+        {
+
+            $code = 404;
+            $message = 'fail';
+
+        }
+
+        $result = array('code'=>$code, 'message'=>$message, 'data'=>$data);
+
+        $this->ajaxReturn($result,'JSONP');
+
+    }
+
+    public function huodongxiang($id = 0)
+    {
+
+
+        $data =M('activity')->where(array('id'=>$id))->select();
+
+         if($data)
+         {
+            $code = 200;
+            $message = 'success';
+
+         }
+        else
+        {
+
+            $code = 404;
+            $message = 'fail';
+
+        }
+
+        $result = array('code'=>$code, 'message'=>$message, 'data'=>$data);
+
+        $this->ajaxReturn($result,'JSONP');
+
+    }
+
+    public function yanqing()
+    {
+
+        $data =M('activity')->where(array('hots'=>'1'))->select();
+
+        if($data)
+        {
+
+            $code = 200;
+            $message = 'success';
+
+        }
+        else
+        {
+
+            $code = 404;
+            $message = 'fail';
+
+        }
+
+        $result = array('code'=>$code, 'message'=>$message,'data'=>$data);
+        
+        $this->ajaxReturn($result,'JSONP');
+
+    }
+
 
 }
