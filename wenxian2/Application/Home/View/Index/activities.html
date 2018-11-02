@@ -11,21 +11,21 @@
 			<img src="__PUBLIC__/img/1_28_1.jpg">
 		</div>
 		<div class="menu-small-nav">
-			<a href="javascript:void(0)">全部</a>
-			<a href="javascript:void(0)">宴请活动</a>
+			<a v-for="(tab,index) in tabs" :key="tab.hots" class="tabClass" :class="{ menuTab : isRed == index }" @click="changeTab($event,index)">{{ tab.title }}</a>
 		</div>
 		<div class="importantActivities-container width1200">
 			<ul class="width1200" id="importantActivities-view">
-				<li v-for="active in activities">
-					<div class="bg-layer">
-						<p>{{ active.activeItemsTitle }}</p>
-						<p>{{ active.activeItemsDate }}</p>
-						<div class="date-box">
-							<p>{{ active.activeItemsYear }}</p>
-							<p class="el-icon-arrow-right"></p>
+				<li v-for="(active,index) in activities" :key="active.type_id">
+					<a :href="'__URL__/active-details?id=' + active.id">
+						<div class="bg-layer">
+							<p>{{ active.title }}</p>
+							<div class="date-box">
+								<p>{{ active.time }}</p>
+								<p class="el-icon-arrow-right"></p>
+							</div>
 						</div>
-					</div>
-					<img :src="active.activeItemsImg">
+						<img :src="'__PUBLIC__/img/' + active.imgs_title">
+					</a>
 				</li>
 			</ul>
 		</div>
@@ -37,7 +37,7 @@
 			@current-change="currentChange"
 			:page-size="6"
 			layout="prev, pager, next"
-			:total="10">
+			:total="totalDataNumber">
 			</el-pagination>
 		</div>
 	</div>
@@ -48,72 +48,89 @@ new Vue({
 	el: '#activities',
 	data() {
 		return {
-			activities: [],
-			lists: [
+			isRed : 0,
+			total : 0,
+			hots : 0,
+			totalDataNumber: 0,
+			tabs : [
 				{
-					activeItemsTitle : '合茂集团董事长与贝宁共和国大使会餐',
-					activeItemsDate : '10-29',
-					activeItemsYear : '2018',
-					activeItemsImg : '__PUBLIC__/img/0059.jpg'
+					title : '全部'
 				},{
-					activeItemsTitle : '合茂集团董事长与贝宁共和国大使会餐',
-					activeItemsDate : '10-28',
-					activeItemsYear : '2018',
-					activeItemsImg : '__PUBLIC__/img/0059.jpg'
-				},{
-					activeItemsTitle : '合茂集团董事长与贝宁共和国大使会餐',
-					activeItemsDate : '10-27',
-					activeItemsYear : '2018',
-					activeItemsImg : '__PUBLIC__/img/0059.jpg'
-				},{
-					activeItemsTitle : '合茂集团董事长与贝宁共和国大使会餐',
-					activeItemsDate : '10-26',
-					activeItemsYear : '2018',
-					activeItemsImg : '__PUBLIC__/img/0059.jpg'
-				},{
-					activeItemsTitle : '合茂集团董事长与贝宁共和国大使会餐',
-					activeItemsDate : '10-25',
-					activeItemsYear : '2018',
-					activeItemsImg : '__PUBLIC__/img/0059.jpg'
-				},{
-					activeItemsTitle : '合茂集团董事长与贝宁共和国大使会餐',
-					activeItemsDate : '10-24',
-					activeItemsYear : '2018',
-					activeItemsImg : '__PUBLIC__/img/0059.jpg'
-				},{
-					activeItemsTitle : '合茂集团董事长与贝宁共和国大使会餐',
-					activeItemsDate : '10-23',
-					activeItemsYear : '2018',
-					activeItemsImg : '__PUBLIC__/img/0059.jpg'
-				},{
-					activeItemsTitle : '合茂集团董事长与贝宁共和国大使会餐',
-					activeItemsDate : '10-22',
-					activeItemsYear : '2018',
-					activeItemsImg : '__PUBLIC__/img/0059.jpg'
-				},{
-					activeItemsTitle : '合茂集团董事长与贝宁共和国大使会餐',
-					activeItemsDate : '10-21',
-					activeItemsYear : '2018',
-					activeItemsImg : '__PUBLIC__/img/0059.jpg'
-				},{
-					activeItemsTitle : '合茂集团董事长与贝宁共和国大使会餐',
-					activeItemsDate : '10-20',
-					activeItemsYear : '2018',
-					activeItemsImg : '__PUBLIC__/img/0059.jpg'
+					title : '宴请活动'
 				}
-			]
+			],
+			activities: []
 		}
 	},
 	created(val) {
-		const { lists } = this
-		const arr = lists.slice((val-1)*6,6)
-		this.activities = arr
+		let self = this
+		$.ajax({
+			url: 'http://47.92.37.138/index.php/Home/activity/xinxi',
+			type: 'GET',
+			dataType: 'JSONP',
+			success: function(res) {
+				let dataLength = res.data.length
+				self.totalDataNumber = dataLength
+				const arr = res.data.slice((val-1)*6,6)
+				self.activities = arr
+			}
+		})
 	},
 	methods: {
+		changeTab(e,index) {
+			this.isRed = index
+			let self = this
+			if ( index == 1 ) {
+				$.ajax({
+					url: 'http://47.92.37.138/index.php/Home/yanqing/xinxi',
+					type: 'GET',
+					dataType: 'JSONP',
+					success: function(res) {
+						let dataLength = res.data.length
+						self.totalDataNumber = dataLength
+						self.hots = res.data[0].hots
+						const arr = res.data.slice((e-1)*6,6)
+						self.activities = arr
+					}
+				})
+			} else {
+				$.ajax({
+					url: 'http://47.92.37.138/index.php/Home/activity/xinxi',
+					type: 'GET',
+					dataType: 'JSONP',
+					success: function(res) {
+						let dataLength = res.data.length
+						self.totalDataNumber = dataLength
+						self.hots = res.data[0].hots
+						const arr = res.data.slice((e-1)*6,6)
+						self.activities = arr
+					}
+				})
+			}
+		},
 		currentChange(current) {
-			const { lists } = this
-			const arr = lists.slice((current-1)*6,current*6)
-			this.activities = arr
+			let self = this
+			if ( self.hots == 1 ) {
+				$.ajax({
+					url: 'http://47.92.37.138/index.php/Home/yanqing/xinxi',
+					type: 'GET',
+					dataType: 'JSONP',
+					success: function(res) {
+						const arr = res.data.slice((current-1)*6,current*6)
+						self.activities = arr
+					}
+				})
+			} else {
+				$.ajax({
+					url: 'http://47.92.37.138/index.php/Home/activity/xinxi',
+					type: 'GET',
+					dataType: 'JSONP',
+					success: function(res) {
+						const arr = res.data.slice((current-1)*6,current*6)
+						self.activities = arr
+					}
+				})
+			}
 		}
 	}
 })

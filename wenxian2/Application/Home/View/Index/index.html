@@ -51,38 +51,17 @@
 		<div class="importantActivities-container width1200">
 			<img src="__PUBLIC__/img/1_28_1.jpg">
 			<ul class="width1200">
-				<li>
-					<div class="bg-layer">
-						<p>合茂集团董事长与贝宁共和国大使会餐</p>
-						<p>10-19</p>
-						<div class="date-box">
-							<p>2018</p>
-							<p class="el-icon-arrow-right"></p>
+				<li v-for="(active,index) in activities" :key="active.type_id">
+					<a :href="'__URL__/active-details?id=' + active.id">
+						<div class="bg-layer">
+							<p>{{ active.title }}</p>
+							<div class="date-box">
+								<p>{{ active.time }}</p>
+								<p class="el-icon-arrow-right"></p>
+							</div>
 						</div>
-					</div>
-					<img src="__PUBLIC__/img/0059.jpg">
-				</li>
-				<li>
-					<div class="bg-layer">
-						<p>合茂集团董事长与贝宁共和国大使会餐</p>
-						<p>10-19</p>
-						<div class="date-box">
-							<p>2018</p>
-							<p class="el-icon-arrow-right"></p>
-						</div>
-					</div>
-					<img src="__PUBLIC__/img/0059.jpg">
-				</li>
-				<li>
-					<div class="bg-layer">
-						<p>合茂集团董事长与贝宁共和国大使会餐</p>
-						<p>10-19</p>
-						<div class="date-box">
-							<p>2018</p>
-							<p class="el-icon-arrow-right"></p>
-						</div>
-					</div>
-					<img src="__PUBLIC__/img/0059.jpg">
+						<img :src="'__PUBLIC__/img/' + active.imgs_title">
+					</a>
 				</li>
 			</ul>
 			<div class="more-btn-box width1200">
@@ -90,7 +69,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</section>
 <block name="footer"><include file="Public:footer" /></block>
 <style>
 	.swiper-img-box{
@@ -127,7 +106,8 @@
 			gourmetNav: [],
 			swiperClasses: [],
 			isShow: 0,
-			isRed: 0
+			isRed: 0,
+			activities: []
 		},
 		created(val) {
 			let self = this
@@ -164,6 +144,18 @@
 							})
 						}
 					})
+				}
+			});
+			$.ajax({
+				url: 'http://47.92.37.138/index.php/Home/activity/xinxi',
+				type: 'GET',
+				dataType: 'JSONP',
+				success: function(res) {
+					let dataLength = res.data.length
+					self.totalDataNumber = dataLength
+					self.hots = res.data[0].hots
+					const arr = res.data.slice((val-1)*3,3)
+					self.activities = arr
 				}
 			})
 		},

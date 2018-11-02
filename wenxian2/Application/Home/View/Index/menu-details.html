@@ -23,7 +23,7 @@
 				</div>
 				<ul class="recommend-menu">
 					<li v-for="(recommendMenu,index) in recommendMenus" :key="recommendMenu.id" v-if="index < 6">
-						<a href="__URL__/menu-details">
+						<a :href="'__URL__/menu-details?id=' + recommendMenu.id">
 							<div>
 								<img :src="'__PUBLIC__/img/' + recommendMenu.imgs">
 							</div>
@@ -61,7 +61,10 @@
 				type: 'GET',
 				dataType: 'JSONP',
 				success: function(res) {
-					self.recommendMenus = res.data
+					res.data.sort(function(a,b){
+				        return Math.random() - 0.5;
+				    });
+				    self.recommendMenus = res.data
 				}
 			})
 		}

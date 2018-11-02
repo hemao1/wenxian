@@ -1,0 +1,73 @@
+<block name="header"><include file="Public:header" /></block>
+	<div id="active-details">
+		<div class="about-content-container width1200">
+			<el-breadcrumb separator-class="el-icon-arrow-right">
+				<el-breadcrumb-item>您的位置：</el-breadcrumb-item>
+				<el-breadcrumb-item><a href="__URL__/index">首页</a></el-breadcrumb-item>
+				<el-breadcrumb-item><a href="__URL__/activities">重要活动</a> </el-breadcrumb-item>
+				<el-breadcrumb-item>献礼中非合作论坛合茂集团投资成立非洲银行</el-breadcrumb-item>
+			</el-breadcrumb>
+		</div>
+		<!-- <div class="active-details-content width1200" v-for="(active,index) in details" :key="active.id">
+			<h3 class="title">{{ active.title }}</h3>
+			<p class="date">{{ active.time }}</p>
+			<img v-for="(img,index) in imgs" :src="'__PUBLIC__/img/' + img">
+			<div>
+				<p>{{ active.content }}</p>
+			</div>
+		</div> -->
+		<div class="active-details-content width1200">
+			<h3 class="title">献礼中非合作论坛合茂集团投资成立非洲银行</h3>
+			<p class="date">2018-11-1</p>
+			<img class="active-details-imgs" src="__PUBLIC__/img/MG_05.jpg">
+			<div>
+				<p>"2018年10月19日非洲银行和中贝经贸合作促进会成立新闻发布会在合茂集团北京基地顺利举行。<br/><br/>非洲银行由西非联盟代表贝宁共和国发起，由中国企业合茂集团共同投资运营，立足西非，链接全球。中贝经贸合作促进会由贝宁共和国和合茂集团共同成立，意在促进中贝两国的经贸文化交流。<br/><br/>出席活动的有贝宁驻中国大使西蒙阁下、贝宁驻中国官员代表团、合茂集团董事长王克、合茂集团总裁王峰、合茂集团总经理朱圣圣、合茂数字执行总裁王军、合茂数字常务副总裁解晓敏、合茂数字董事杨歌、合茂数字董事朱博文、以及全国企业家代表和新闻媒体记者100多人"</p>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	new Vue({
+		el: '#active-details',
+		data: {
+			details: [],
+			imgs: []
+		},
+		created() {
+			// token验证------------------------------------------------
+			// let newDate = new Date();
+			// let month = '' + (newDate.getMonth() + 1);
+   //      	let day = '' + newDate.getDate();
+   //      	let year = newDate.getFullYear();
+   //      	if (month.length < 2) {
+   //      		month = '0' + month;
+   //      	}
+   //  		if (day.length < 2) {
+   //  			day = '0' + day;
+   //  		}
+   //  		let overDate = [year, month, day].join('-');
+			// let key = 'fe51bfa9646fa550a9b13728589d16bb';
+			// let newKey = hex_md5(key+overDate)
+
+			// let str = location.href; //取得整个地址栏
+			// let num = str.indexOf("=");
+			// let id = str.substr(num + 1); //取得所有参数
+			// let idArr = 'http://47.92.37.138/index.php/Home/activityxiang/' + id + '/' + newKey;
+			// console.log(idArr)
+			// let self = this
+			// $.ajax({
+			// 	url: idArr,
+			// 	type: 'GET',
+			// 	dataType: 'JSONP',
+			// 	success: function(res) {
+			// 		// let imgArr = res.data[0].imgs_content;
+			// 		// var imgSplit = imgArr.split(';');
+			// 		// self.imgs = imgSplit
+			// 		// self.details = res.data
+			// 		console.log(res)
+			// 	}
+			// })
+		}
+	})
+</script>
+<block name="footer"><include file="Public:footer" /></block>

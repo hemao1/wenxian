@@ -13,6 +13,7 @@
 	<script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 	<script src="__PUBLIC__/js/swiper.min.js"></script>
 	<script src="__PUBLIC__/js/element-ui.js"></script>
+	<script src="__PUBLIC__/js/md5.js"></script>
 </head>
 <body>
 <header>
@@ -23,19 +24,44 @@
 		</p>
 	</div>
 </header>
-<section class="content-container">
-	<div class="nav-container width1200">
-		<ul class="nav">
-			<li><a href="__URL__/index">网站首页</a></li>
-			<li><a href="__URL__/about">关于我们</a></li>
-			<li><a href="__URL__/information">美食资讯</a></li>
-			<li>
-				<a href="__URL__/index" class="logo-box">
-					<img src="__PUBLIC__/img/logo.jpg" alt="温鲜私家厨房LOGO">
-				</a>
-			</li>
-			<li><a href="__URL__/menu">菜单中心</a></li>
-			<li><a href="__URL__/activities">重要活动</a></li>
-			<li><a href="__URL__/contactUs">联系我们</a></li>
-		</ul>
+<section class="content-container" id="allDocument">
+	<div class="nav-container width1200" id="index-nav">
+		<div class="nav">
+			<a v-for="(nav,index) in navs" :key="index" :href="'__URL__/'+nav.href" v-html='nav.title' @click="changeNav(index)"></a>
+		</div>
 	</div>
+<script>
+	new Vue ({
+		el: '#index-nav',
+		data: {
+			isNavRed: 0,
+			navs: [
+				{
+					title : '网站首页',
+					href : 'index'
+				},{
+					title : '关于我们',
+					href : 'about'
+				},{
+					title : '美食资讯',
+					href : 'information'
+				},{
+					title : `<img class="logo-img" src="__PUBLIC__/img/logo.jpg" alt="温鲜私家厨房LOGO">`,
+					href : 'index'
+				},{
+					title : '菜单中心',
+					href : 'menu'
+				},{
+					title : '重要活动',
+					href : 'activities'
+				},{
+					title : '联系我们',
+					href : 'contactUs'
+				}
+			]
+		},
+		created(val){
+			
+		}
+	})
+</script>
