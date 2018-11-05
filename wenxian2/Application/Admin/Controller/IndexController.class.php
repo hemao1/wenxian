@@ -10,25 +10,57 @@ class IndexController extends Controller {
 
     }
 
+    //后台登录
     public function Login()
     {
-
     	if($_POST)
     	{
 
-    	  $data= M('news')->select();		
-    	    
-    	  $this->success('登录成功', 'index');
+           $username = $_POST['username'];
+
+           $password   = $_POST['pwd'];
+
+           if($username)
+           {
+           
+             $data =M('user')->where(array('username'=>$username))->find();
+         
+            $name = $data['username'];
+
+            $pwd  = $data['pwd'];
+
+            if($username == $name && $password ==$pwd)
+            {
+
+                $this->success('登录成功', 'index');
+
+            }
+            else
+            {
+
+                $this->success('账号错误', 'login');
+
+            }
+
+           }
+           else
+           {
+
+            $this->success('账号不能为空', 'login');
+
+           }
 
     	}
     	else
     	{
 
+           
     		 $this->display('login');
 
     	}
 
     }
+
 
 
 
