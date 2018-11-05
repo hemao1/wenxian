@@ -9,15 +9,10 @@ class IndexController extends Controller {
     public function index()
     {
       
-      if(empty($_SESSION['name']))
-      {   session('name',null);
-          $this->success('请先登录', 'login');
-      }
-      else
-      {
+    
 
           $this->display();
-      }
+
       
     }
     
@@ -33,15 +28,10 @@ class IndexController extends Controller {
       }
       else
       {
-        if(empty($_SESSION['name']))
-        {   session('name',null);
-            $this->success('请先登录', 'login');
-        }
-        else
-        {
+ 
 
           $this->display();
-        }
+
   
       }
 
