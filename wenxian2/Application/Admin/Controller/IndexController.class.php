@@ -36,6 +36,12 @@ class IndexController extends Controller {
       }
 
     }
+    public function baidu()
+    {
+
+        print_r($_POST);die;
+
+    }
     //后台登录
     public function Login()
     {
