@@ -15,7 +15,7 @@ class IndexController extends Controller {
 
       
     }
-    
+
     //重要活动
     public function release()
     {
@@ -39,54 +39,54 @@ class IndexController extends Controller {
     //后台登录
     public function Login()
     {
-    	if($_POST)
-    	{
+    	// if($_POST)
+    	// {
 
-           $username = $_POST['username'];
+     //       $username = $_POST['username'];
 
-           $password   = $_POST['pwd'];
+     //       $password   = $_POST['pwd'];
 
-           if($username)
-           {
+     //       if($username)
+     //       {
            
-             $data =M('user')->where(array('username'=>$username))->find();
+     //         $data =M('user')->where(array('username'=>$username))->find();
          
-            $name = $data['username'];
+     //        $name = $data['username'];
 
-            $pwd  = $data['pwd'];
+     //        $pwd  = $data['pwd'];
 
-            if($username == $name && $password ==$pwd)
-            {
+     //        if($username == $name && $password ==$pwd)
+     //        {
 
-                session_start();
-                session("name",$name); 
+     //            session_start();
+     //            session("name",$name); 
 
-                $this->success('登录成功', 'index');
+     //            $this->success('登录成功', 'index');
 
-            }
-            else
-            {
+     //        }
+     //        else
+     //        {
 
-                $this->success('账号错误', 'login');
+     //            $this->success('账号错误', 'login');
 
-            }
+     //        }
 
-           }
-           else
-           {
+     //       }
+     //       else
+     //       {
 
-            $this->success('账号不能为空', 'login');
+     //        $this->success('账号不能为空', 'login');
 
-           }
+     //       }
 
-    	}
-    	else
-    	{
+    	// }
+    	// else
+    	// {
         
            
-    		 $this->display('login');
+    		 $this->display('index');
 
-    	}
+    	// }
 
     }
 
