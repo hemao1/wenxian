@@ -32,7 +32,7 @@
 				<img src="__PUBLIC__/img/1_45.png">
 				<div class="classic-gourmet-nav">
 					<ul>
-						<li v-for="(gourmet,index) in gourmetNav" :key="gourmet.id" @click="changeCon($event,index)" :class="{ colorRed:isRed == index }" :type_id="gourmet.type_id">{{ gourmet.title }}</li>
+						<li v-for="(gourmet,index) in gourmetNav" :key="gourmet.id" @click="changeCon($event,index)" :class="{ colorRed:isRed == index }" :type_id="gourmet.type_id" v-text="gourmet.title"></li>
 					</ul>
 				</div>
 				<div class="classic-gourmet-banner">
@@ -54,9 +54,9 @@
 				<li v-for="(active,index) in activities" :key="active.type_id">
 					<a :href="'__URL__/active-details?id=' + active.id">
 						<div class="bg-layer">
-							<p>{{ active.title }}</p>
+							<p v-text="active.title"></p>
 							<div class="date-box">
-								<p>{{ active.time }}</p>
+								<p v-text="active.time"></p>
 								<p class="el-icon-arrow-right"></p>
 							</div>
 						</div>
@@ -69,7 +69,7 @@
 			</div>
 		</div>
 	</div>
-</section>
+</div>
 <block name="footer"><include file="Public:footer" /></block>
 <style>
 	.swiper-img-box{
@@ -100,6 +100,9 @@
 	}
 </style>
 <script>
+	$(document).ready(function(){
+	  	$("#index-nav .nav a").eq(0).addClass('currentRed')
+	});
 	new Vue({
 		el: '#index',
 		data: {

@@ -11,16 +11,16 @@
 			<img src="__PUBLIC__/img/1_28_1.jpg">
 		</div>
 		<div class="menu-small-nav">
-			<a v-for="(tab,index) in tabs" :key="tab.hots" class="tabClass" :class="{ menuTab : isRed == index }" @click="changeTab($event,index)">{{ tab.title }}</a>
+			<a v-for="(tab,index) in tabs" :key="tab.hots" class="tabClass" :class="{ menuTab : isRed == index }" @click="changeTab($event,index)" v-text="tab.title"></a>
 		</div>
 		<div class="importantActivities-container width1200">
 			<ul class="width1200" id="importantActivities-view">
 				<li v-for="(active,index) in activities" :key="active.type_id">
 					<a :href="'__URL__/active-details?id=' + active.id">
 						<div class="bg-layer">
-							<p>{{ active.title }}</p>
+							<p v-text="active.title"></p>
 							<div class="date-box">
-								<p>{{ active.time }}</p>
+								<p v-text="active.time"></p>
 								<p class="el-icon-arrow-right"></p>
 							</div>
 						</div>
@@ -44,96 +44,99 @@
 </div>
 <block name="footer"><include file="Public:footer" /></block>
 <script>
-new Vue({
-	el: '#activities',
-	data() {
-		return {
-			isRed : 0,
-			total : 0,
-			hots : 0,
-			totalDataNumber: 0,
-			tabs : [
-				{
-					title : '全部'
-				},{
-					title : '宴请活动'
-				}
-			],
-			activities: []
-		}
-	},
-	created(val) {
-		let self = this
-		$.ajax({
-			url: 'http://47.92.37.138/index.php/Home/activity/xinxi',
-			type: 'GET',
-			dataType: 'JSONP',
-			success: function(res) {
-				let dataLength = res.data.length
-				self.totalDataNumber = dataLength
-				const arr = res.data.slice((val-1)*6,6)
-				self.activities = arr
-			}
-		})
-	},
-	methods: {
-		changeTab(e,index) {
-			this.isRed = index
-			let self = this
-			if ( index == 1 ) {
-				$.ajax({
-					url: 'http://47.92.37.138/index.php/Home/yanqing/xinxi',
-					type: 'GET',
-					dataType: 'JSONP',
-					success: function(res) {
-						let dataLength = res.data.length
-						self.totalDataNumber = dataLength
-						self.hots = res.data[0].hots
-						const arr = res.data.slice((e-1)*6,6)
-						self.activities = arr
+	$(document).ready(function(){
+	  	$("#index-nav .nav a").eq(5).addClass('currentRed')
+	});
+	new Vue({
+		el: '#activities',
+		data() {
+			return {
+				isRed : 0,
+				total : 0,
+				hots : 0,
+				totalDataNumber: 0,
+				tabs : [
+					{
+						title : '全部'
+					},{
+						title : '宴请活动'
 					}
-				})
-			} else {
-				$.ajax({
-					url: 'http://47.92.37.138/index.php/Home/activity/xinxi',
-					type: 'GET',
-					dataType: 'JSONP',
-					success: function(res) {
-						let dataLength = res.data.length
-						self.totalDataNumber = dataLength
-						self.hots = res.data[0].hots
-						const arr = res.data.slice((e-1)*6,6)
-						self.activities = arr
-					}
-				})
+				],
+				activities: []
 			}
 		},
-		currentChange(current) {
+		created(val) {
 			let self = this
-			if ( self.hots == 1 ) {
-				$.ajax({
-					url: 'http://47.92.37.138/index.php/Home/yanqing/xinxi',
-					type: 'GET',
-					dataType: 'JSONP',
-					success: function(res) {
-						const arr = res.data.slice((current-1)*6,current*6)
-						self.activities = arr
-					}
-				})
-			} else {
-				$.ajax({
-					url: 'http://47.92.37.138/index.php/Home/activity/xinxi',
-					type: 'GET',
-					dataType: 'JSONP',
-					success: function(res) {
-						const arr = res.data.slice((current-1)*6,current*6)
-						self.activities = arr
-					}
-				})
+			$.ajax({
+				url: 'http://47.92.37.138/index.php/Home/activity/xinxi',
+				type: 'GET',
+				dataType: 'JSONP',
+				success: function(res) {
+					let dataLength = res.data.length
+					self.totalDataNumber = dataLength
+					const arr = res.data.slice((val-1)*6,6)
+					self.activities = arr
+				}
+			})
+		},
+		methods: {
+			changeTab(e,index) {
+				this.isRed = index
+				let self = this
+				if ( index == 1 ) {
+					$.ajax({
+						url: 'http://47.92.37.138/index.php/Home/yanqing/xinxi',
+						type: 'GET',
+						dataType: 'JSONP',
+						success: function(res) {
+							let dataLength = res.data.length
+							self.totalDataNumber = dataLength
+							self.hots = res.data[0].hots
+							const arr = res.data.slice((e-1)*6,6)
+							self.activities = arr
+						}
+					})
+				} else {
+					$.ajax({
+						url: 'http://47.92.37.138/index.php/Home/activity/xinxi',
+						type: 'GET',
+						dataType: 'JSONP',
+						success: function(res) {
+							let dataLength = res.data.length
+							self.totalDataNumber = dataLength
+							self.hots = res.data[0].hots
+							const arr = res.data.slice((e-1)*6,6)
+							self.activities = arr
+						}
+					})
+				}
+			},
+			currentChange(current) {
+				let self = this
+				if ( self.hots == 1 ) {
+					$.ajax({
+						url: 'http://47.92.37.138/index.php/Home/yanqing/xinxi',
+						type: 'GET',
+						dataType: 'JSONP',
+						success: function(res) {
+							const arr = res.data.slice((current-1)*6,current*6)
+							self.activities = arr
+						}
+					})
+				} else {
+					$.ajax({
+						url: 'http://47.92.37.138/index.php/Home/activity/xinxi',
+						type: 'GET',
+						dataType: 'JSONP',
+						success: function(res) {
+							const arr = res.data.slice((current-1)*6,current*6)
+							self.activities = arr
+						}
+					})
+				}
 			}
 		}
-	}
-})
+	})
 </script>
 </body>
 </html>

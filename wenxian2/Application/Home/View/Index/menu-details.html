@@ -6,7 +6,7 @@
 					<el-breadcrumb-item>您的位置：</el-breadcrumb-item>
 					<el-breadcrumb-item><a href="__URL__/index">首页</a></el-breadcrumb-item>
 					<el-breadcrumb-item><a href="__URL__/menu">菜单中心</a></el-breadcrumb-item>
-					<el-breadcrumb-item v-for="(recommend,index) in recommendLists" :key="recommend.id">{{ recommend.name }}</el-breadcrumb-item>
+					<el-breadcrumb-item v-for="(recommend,index) in recommendLists" :key="recommend.id" v-text="recommend.name"></el-breadcrumb-item>
 				</el-breadcrumb>
 			</div>
 			<div class="details-big-img-box" v-for="(recommend,index) in recommendLists" :key="recommend.id">
@@ -15,8 +15,8 @@
 		</div>
 		<div class="details-right-content">
 			<div class="text-content" v-for="(recommend,index) in recommendLists" :key="recommend.id" v-if="index < 1">
-				<h3>{{ recommend.name }}</h3>
-				<p class="introduction-of-dishes" >{{ recommend.content }}</p>
+				<h3 v-text="recommend.name"></h3>
+				<p class="introduction-of-dishes" v-text="recommend.content"></p>
 				<hr>
 				<div class="menu-small-nav">
 					<a style="cursor: auto;">推荐菜品</a>
@@ -27,7 +27,7 @@
 							<div>
 								<img :src="'__PUBLIC__/img/' + recommendMenu.imgs">
 							</div>
-							<p>{{ recommendMenu.name }}</p>
+							<p v-text="recommendMenu.name"></p>
 						</a>
 					</li>
 				</ul>

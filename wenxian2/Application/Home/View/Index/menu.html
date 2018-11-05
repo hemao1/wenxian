@@ -11,7 +11,7 @@
 			<img src="__PUBLIC__/img/menu.png">
 		</div>
 		<div class="menu-small-nav">
-			<a v-for="(tab,index) in tabs" :key="tab.hots" class="tabClass" :class="{ menuTab : isRed == index }" @click="changeTab($event,index)">{{ tab.title }}</a>
+			<a v-for="(tab,index) in tabs" :key="tab.hots" class="tabClass" :class="{ menuTab : isRed == index }" @click="changeTab($event,index)" v-text="tab.title"></a>
 		</div>
 		<div class="menu-content-box width1200">
 			<ul>
@@ -20,7 +20,7 @@
 						<div class="imgs-box">
 							<img :src="'__PUBLIC__/img/' + menu.imgs">
 						</div>
-						<p>{{ menu.name }}</p>
+						<p v-text="menu.name"></p>
 					</a>
 				</li>
 			</ul>
@@ -40,6 +40,9 @@
 </section>
 <block name="footer"><include file="Public:footer" /></block>
 <script>
+	$(document).ready(function(){
+	  	$("#index-nav .nav a").eq(4).addClass('currentRed')
+	});
 	new Vue({
 		el: '#menu',
 		data: {
