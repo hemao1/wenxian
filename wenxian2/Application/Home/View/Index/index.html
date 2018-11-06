@@ -60,7 +60,7 @@
 								<p class="el-icon-arrow-right"></p>
 							</div>
 						</div>
-						<img :src="'__PUBLIC__/img/' + active.imgs_title">
+						<img :src="'__PUBLIC__/' + active.imgs_title">
 					</a>
 				</li>
 			</ul>
@@ -156,6 +156,11 @@
 					self.totalDataNumber = dataLength
 					self.hots = res.data[0].hots
 					const arr = res.data.slice((val-1)*3,3)
+					for (let i=0; i<arr.length; i++) {
+						var rep = arr[i].imgs_title;
+						rep = rep.replace("./Public/","")
+						arr[i].imgs_title = rep
+					}
 					self.activities = arr
 				}
 			})
