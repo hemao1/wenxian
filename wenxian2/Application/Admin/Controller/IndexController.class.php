@@ -8,12 +8,16 @@ class IndexController extends Controller {
   //主页面
     public function index()
     {
-      
-    
-
+        
+      if(empty($_SESSION['name']))
+      {   session('name',null);
+          $this->success('请先登录', 'login');
+      }
+      else
+      {
           $this->display();
+      }
 
-      
     }
 
     //重要活动
@@ -21,96 +25,109 @@ class IndexController extends Controller {
     {
       if($_POST)
       {
+             $baidu=$_POST['editorValue'];
+             $file=$this->do_upload('file_name');
+             $title = $_POST['title'];
+             $hots = $_POST['hots'];
+             $m = M("activity");
+              $obj = array(
+              "content" => $baidu,
+              "time" => date('Y-m-d'),
+              "title" => $title,
+              "imgs_title" => $file,
+              "hots" => $hots 
+              );
+              $data=$m->add($obj);
+              if($data)
+              {
 
+                $this->success('添加成功', 'index');
 
-          echo 1;die;
+              }
+              else
+              {
+
+                 $this->success('添加失败', 'index');
+              } 
 
       }
       else
       {
- 
+        
+        if(empty($_SESSION['name']))
+        {
+
+          session('name',null);
+          $this->success('请先登录', 'login');
+
+        }
+        else
+        {
 
           $this->display();
 
+        }
   
       }
 
     }
-    public function baidu()
-    {
 
-        print_r($_POST);die;
-
-    }
     //后台登录
     public function Login()
     {
-    	// if($_POST)
-    	// {
+    	if($_POST)
+    	{
 
-     //       $username = $_POST['username'];
+           $username = $_POST['username'];
 
-     //       $password   = $_POST['pwd'];
+           $password   = $_POST['pwd'];
 
-     //       if($username)
-     //       {
+           if($username)
+           {
            
-     //         $data =M('user')->where(array('username'=>$username))->find();
+             $data =M('user')->where(array('username'=>$username))->find();
          
-     //        $name = $data['username'];
+            $name = $data['username'];
 
-     //        $pwd  = $data['pwd'];
+            $pwd  = $data['pwd'];
 
-     //        if($username == $name && $password ==$pwd)
-     //        {
+            if($username == $name && $password ==$pwd)
+            {
 
-     //            session_start();
-     //            session("name",$name); 
+                session_start();
+                session("name",$name); 
 
-     //            $this->success('登录成功', 'index');
+                $this->success('登录成功', 'index');
 
-     //        }
-     //        else
-     //        {
+            }
+            else
+            {
 
-     //            $this->success('账号错误', 'login');
+                $this->success('账号错误', 'login');
 
-     //        }
+            }
 
-     //       }
-     //       else
-     //       {
+           }
+           else
+           {
 
-     //        $this->success('账号不能为空', 'login');
+            $this->success('账号不能为空', 'login');
 
-     //       }
+           }
 
-    	// }
-    	// else
-    	// {
+    	}
+    	else
+    	{
         
            
-    		 $this->display('index');
+    		 $this->display('login');
 
-    	// }
+    	}
 
     }
 
-     public function add()
-     {
 
-            $this->display('add');
-
-     }
-
-     public function add_do()
-     {
-
-          $file=$this->do_upload('file_name');
-          
-     }
-
-   public function do_upload($logo,$path='./public/Uploads')
+   public function do_upload($logo,$path='./Public/Uploads')
     {
         $fileInfo=$_FILES['file_name'];
 
