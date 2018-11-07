@@ -125,7 +125,39 @@ class IndexController extends Controller {
     	}
 
     }
+    //活动信息展示
+    public function record()
+    {
 
+      $data = M('activity')->select();
+      foreach ($data as $key => $value) {
+         var_dump($key[$value]['imgs_title']);die;
+      }
+     
+      $this->assign('data', $data);
+
+      $this->display();
+
+    }
+
+  //活动信息删除
+    public function record_del()
+    {
+        $id = $_GET['id'];
+
+        $data = M('activity')->where(array('id'=>$id))->delete();
+
+        if($data)
+        {
+            $this->success('删除成功','record');
+        }
+        else
+        {
+
+            $this->success('删除失败','record');
+        }
+
+    }
 
    public function do_upload($logo,$path='./Public/Uploads')
     {

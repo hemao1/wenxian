@@ -38,6 +38,15 @@ return array(
 		    //验证token
 		    'yanzheng/:id\d/:token' => 'Index/yanzheng',
 
+		    /* ---------------------------------------  */
+
+		    //轮播图
+		    'lunbo/xinxi' => 'Base/index',
+		    //每日推荐
+		    'jingdian/xinxi' =>'Duotiao/tuijian',
+		    //温鲜经典
+		    'wenxian/xinxi'=>'Duotiao/jingdian',
+		   
 	),
 
 	'TMPL_CACHE_ON' => false,//禁止模板编译缓存 
