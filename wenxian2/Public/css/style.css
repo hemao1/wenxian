@@ -238,6 +238,16 @@ footer{
 	height: 220px;
 	margin: 50px auto 0 auto;
 }
+.swiper-img-box{
+	width: 160px !important;
+	height: 200px !important;
+	margin: 40px;
+	overflow: hidden;
+}
+.swiper-img{
+	width: auto;
+	height: 100%;
+}
 
 /* importantActivities */
 .importantActivities-container{
@@ -733,7 +743,8 @@ footer{
 	margin: 30px auto;
 }
 .active-details-content > div > p{
-	margin-bottom: 30px;
+	margin: 0 auto 30px auto;
+	text-align: center;
 }
 
 
