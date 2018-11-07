@@ -272,7 +272,7 @@ footer{
 
 /* importantActivities */
 .importantActivities-container{
-	margin: 40px auto 80px auto;
+	margin: 2rem auto;
 }
 .importantActivities-container > img{
 	display: block;
@@ -281,16 +281,17 @@ footer{
 }
 .importantActivities-container > ul{
 	display: flex;
+	flex-wrap: nowrap;
 	justify-content: space-between;
-	margin: 60px auto 60px auto;
+	margin: 1rem auto;
 }
 .importantActivities-container > ul li{
 	overflow: hidden;
-	width: 388px;
+	width: 80%;
 	border: solid 1px #CCCCCC;
 	height: 214px;
 	position: relative;
-	margin: 30px auto;
+	margin: 1rem auto;
 }
 .importantActivities-container > ul li:nth-of-type(2),
 .importantActivities-container > ul li:nth-of-type(5){

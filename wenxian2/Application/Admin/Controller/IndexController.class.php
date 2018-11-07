@@ -41,13 +41,13 @@ class IndexController extends Controller {
               if($data)
               {
 
-                $this->success('添加成功', 'index');
+                $this->success('添加成功', 'record');
 
               }
               else
               {
 
-                 $this->success('添加失败', 'index');
+                 $this->success('添加失败', 'record');
               } 
 
       }
@@ -130,10 +130,8 @@ class IndexController extends Controller {
     {
 
       $data = M('activity')->select();
-      foreach ($data as $key => $value) {
-         var_dump($key[$value]['imgs_title']);die;
-      }
-     
+
+   
       $this->assign('data', $data);
 
       $this->display();

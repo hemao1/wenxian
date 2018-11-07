@@ -2,11 +2,38 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
 	<title>温鲜私家厨房</title>
 	<meta name=”description” content="温鲜-私人厨房，隶属于合茂集团，位于北京市朝阳区高碑店镇西店通惠河南街1066号。餐厅可以同时容纳100多人用餐，其定位于“品味、生态、文化、尊贵”，抒发着浓厚的家乡情怀，散发着低调大气的文化品味。其与室内VIP接待室、古典茶室、红酒雪茄吧融为一体，又独具一格。作为高端会所的重要组成部分，“温鲜-私人厨房”为尊贵的客人提供室内静谧高雅、世外垂柳依依、荷塘月色的用餐空间，打造品尝温州美味、鉴赏尊贵品质、沉醉视觉盛宴、感受精彩无限的专属您的私人厨房。让游子回味乡愁，唤起儿时的记忆，让食客品尝美味，激发味蕾的嗅觉。">
 	<meta name=”keyword” content="温鲜私家厨房,餐厅,高端会所,温州美味,合茂集团,高碑店">
-	<link rel="stylesheet" href="__PUBLIC__/css/style.css">
+	<script>
+		// 判断是否为移动端运行环境 
+		if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
+			if (window.location.href.indexOf("?mobile") < 0) {
+				try {
+					if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+						// 判断访问环境是 Android|webOS|iPhone|iPod|BlackBerry 则加载以下样式 
+						setActiveStyleSheet("__PUBLIC__/css/phone.css");
+					} 
+					else if (/iPad/i.test(navigator.userAgent)) {
+						// 判断访问环境是 iPad 则加载以下样式 
+						setActiveStyleSheet("__PUBLIC__/css/phone.css");
+					}
+					//else {
+					// 	// 判断访问环境是 其他移动设备 则加载以下样式 
+					// 	setActiveStyleSheet("style_mobile_other.css");
+					// }
+				} catch (e) {}
+			}
+		} else {
+			// 如果以上都不是，则加载以下样式 
+			setActiveStyleSheet("__PUBLIC__/css/style.css");
+		}
+		// 判断完毕后加载样式 
+		function setActiveStyleSheet(filename) {
+			document.write("<link href=" + filename + " rel=stylesheet>");
+		}
+	</script>
 	<link rel="stylesheet" href="__PUBLIC__/css/swiper.css">
 	<link rel="stylesheet" href="__PUBLIC__/css/element-ui.css">
 	<script src="__PUBLIC__/js/vue.js"></script>
@@ -20,7 +47,7 @@
 	<div class="header-container width1200">
 		<p>欢迎来到温鲜私家厨房</p>
 		<p>
-			预订热线：<a class="tel" href="javascript:void(0)">010-65288743</a>
+			预订热线：<a class="tel" tel="010-65288743">010-65288743</a>
 		</p>
 	</div>
 </header>
