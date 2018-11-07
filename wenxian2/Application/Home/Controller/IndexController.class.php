@@ -245,8 +245,8 @@ class IndexController extends Controller {
     public function huodong()
     {
 
-        $data =M('activity')->select();
-
+        $data =M('activity')->order('sort desc')->select();
+        
          if($data)
          {
             $code = 200;

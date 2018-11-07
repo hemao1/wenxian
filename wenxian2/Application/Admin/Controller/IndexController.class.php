@@ -29,13 +29,15 @@ class IndexController extends Controller {
              $file=$this->do_upload('file_name');
              $title = $_POST['title'];
              $hots = $_POST['hots'];
+             $sort = $_POST['sort'];
              $m = M("activity");
               $obj = array(
               "content" => $baidu,
               "time" => date('Y-m-d'),
               "title" => $title,
               "imgs_title" => $file,
-              "hots" => $hots 
+              "hots" => $hots,
+              "sort" => $sort
               );
               $data=$m->add($obj);
               if($data)
@@ -131,7 +133,7 @@ class IndexController extends Controller {
 
       $data = M('activity')->select();
 
-   
+
       $this->assign('data', $data);
 
       $this->display();
