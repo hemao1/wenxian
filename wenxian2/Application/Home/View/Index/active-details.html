@@ -11,7 +11,7 @@
 		<div class="active-details-content width1200" v-for="(active,index) in details" :key="active.id">
 			<h3 class="title">{{ active.title }}</h3>
 			<p class="date">{{ active.time }}</p>
-			<img :src="'__PUBLIC__/' + active.imgs_title">
+			<!-- <img :src="'__PUBLIC__/' + active.imgs_title"> -->
 			<div v-html="active.content"></div>
 		</div>
 	</div>
@@ -43,7 +43,6 @@
 			let num = str.indexOf("=");
 			let id = str.substr(num + 1); //取得所有参数
 			let idArr = 'http://47.92.37.138/index.php/Home/activityxiang/' + id + '/' + newKey;
-			console.log(idArr)
 			let self = this
 			$.ajax({
 				url: idArr,
@@ -57,7 +56,6 @@
 						arr[i].imgs_title = rep
 					}
 					self.details = res.data
-					console.log(self.details)
 				}
 			})
 		}

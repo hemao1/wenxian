@@ -14,6 +14,13 @@ h3{
 h5{
 	color: #666666;
 }
+/* 每页标题统一样式 */
+.unified-title-img{
+	display: flex;
+	justify-content: center;
+	margin: 40px auto 20px auto;
+}
+
 /* 分页上下页按钮样式 */
 .el-pagination .btn-next,
 .el-pagination .btn-prev{
@@ -24,8 +31,14 @@ h5{
 	border: solid 1px #c0c4cc;
 	cursor: not-allowed;
 }
+.el-pager li.active {
+    color: #e03344 !important;
+    cursor: default;
+}
+
 /* 面包屑统一样式 */
-.el-breadcrumb__item:last-child .el-breadcrumb__inner{
+.el-breadcrumb__item:last-child .el-breadcrumb__inner,
+.el-breadcrumb__item{
 	color: #e03344 !important;
 }
 
@@ -113,6 +126,7 @@ footer{
 /* 首页 */
 /* content */
 .content-container .nav-container{
+	width: 1200px;
 	height: 102px;
 	margin: 0 auto 0 auto;
 }
@@ -179,18 +193,18 @@ footer{
 	width: 800px;
 	margin: 30px auto;
 }
-.content-container .about-us .details-smal-list{
+.content-container .about-us .details-small-list{
 	overflow: hidden;
 }
-.content-container .about-us .details-smal-list li{
+.content-container .about-us .details-small-list li{
 	width: 400px;
 	float: left;
 	margin: 0 auto;
 }
-.content-container .about-us .details-smal-list li img{
+.content-container .about-us .details-small-list li img{
 	margin: 10px auto;
 }
-.content-container .about-us .details-smal-list li p{
+.content-container .about-us .details-small-list li p{
 	width: 200px;
 }
 
@@ -237,6 +251,12 @@ footer{
 	width: 1200px;
 	height: 220px;
 	margin: 50px auto 0 auto;
+}
+.classic-gourmet-container .classic-gourmet .classic-gourmet-banner img{
+	margin-left: -50px;
+}
+.classic-gourmet-container .classic-gourmet .classic-gourmet-banner-phone{
+	display: none;
 }
 .swiper-img-box{
 	width: 160px !important;
@@ -313,7 +333,7 @@ footer{
 	width: 20%;
 }
 
-/* 关于我们 about */
+/* 温鲜简介 about */
 /* 餐厅简介 */
 .about-content-container{
 	margin: 50px auto;
@@ -489,11 +509,6 @@ footer{
 .information-list-container{
 	margin: 0 auto 30px auto;
 	overflow: hidden;
-}
-.information-title-box{
-	display: flex;
-	justify-content: center;
-	margin: 40px auto 20px auto;
 }
 .information-list-box{
 	display: flex;

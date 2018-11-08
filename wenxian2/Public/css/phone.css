@@ -4,15 +4,22 @@ html,body,div,ul,li,h1,h2,h3,h4,h5,h6,a,img,p{
 	list-style: none;
 	text-decoration: none;
 	outline: none;
+	font-family: "微软雅黑";
 }
 html{
-	font-size:16px;
+	font-size:14px;
 }
 h3{
-	font-size: 1rem;
+	font-size: 1.5rem;
 }
 h5{
 	color: #666666;
+}
+/* 每页标题统一样式 */
+.unified-title-img img{
+	display: block;
+	width: 80%;
+	margin: 0.5rem auto;
 }
 
 /* 分页上下页按钮样式 */
@@ -25,30 +32,42 @@ h5{
 	border: solid 1px #c0c4cc;
 	cursor: not-allowed;
 }
+.el-pager li.active {
+    color: #e03344 !important;
+    cursor: default;
+}
+
 /* 面包屑统一样式 */
-.el-breadcrumb__item:last-child .el-breadcrumb__inner{
+.el-breadcrumb__item:last-child .el-breadcrumb__inner,
+.el-breadcrumb__item{
 	color: #e03344 !important;
+}
+.el-breadcrumb__inner{
+	font-size: 1rem;
+}
+.el-breadcrumb__separator.el-icon-arrow-right{
+	font-size: 1rem;
 }
 
 /* all */
 .width1400{
-	width: 1400px;
+	width: 100rem;
 }
 .width1200{
-	width: 100%;
+	width: 90%;
 }
 .more-btn-box{
 	margin: 1.5rem auto;
 	text-align: center;
 }
 .more-btn-box a{
-	width: 60%;
+	width: 50%;
 	display: block;
 	margin: 0 auto;
 	font-size: 1rem;
 	color: white;
 	background-color: #e03344;
-	padding: 3px 20px;
+	padding: 3px 1.5rem;
 	border: solid 1px #e03344;
 	border-radius: 100px 100px;
 	line-height: 2rem;
@@ -88,28 +107,35 @@ footer{
 	background-color: black;
 }
 .footer-container{
-	overflow: hidden;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
 	margin: 0 auto;
+	padding: 1.5rem 0;
 }
 .footer-container div{
-	float: left;
 	color: white;
 }
 .footer-container div:nth-of-type(1){
-	margin: 50px 0 0 50px;
+	order: 1;
 }
 .footer-container div:nth-of-type(2){
-	margin: 72px 0 0 10px;
+	order: 2;
+	width: 16rem;
+	text-align: center;
+	margin-top: 1rem;
 }
 .footer-container div:nth-of-type(3){
-	margin: 72px 0 0 300px;
+	order: 1;
+	width: 1rem;
 }
 .footer-container div:nth-of-type(4){
-	margin: 20px 0 0 60px;
+	order: 1;
 }
 .footer-container div:nth-of-type(4) img{
-	width: 100px;
-	height: 100px;
+	width: 6.2rem;
+	height: 6.2rem;
 }
 
 /* 首页 */
@@ -117,23 +143,10 @@ footer{
 .content-container .nav-container{
 	margin: 0 auto;
 }
-/*.content-container .nav-container > div{
-	overflow: hidden;
-}*/
-/*.logo-box{
-	width: 171px;
-}*/
 .logo-img{
 	width: 100%;
 	margin: 0 auto;
 }
-/*.content-container .nav-container .nav{
-	width: 171px;
-	height: 102px;
-	line-height: 102px;
-	text-align: center;
-	float: left;
-}*/
 .content-container .nav-container .nav{
 	color: black;
 	transition: all 0.2s;
@@ -147,7 +160,7 @@ footer{
 	order: 2;
 	height: 3rem;
 	line-height: 3rem;
-	padding: 0 1.5rem;
+	padding: 0 1.8rem;
 	margin: 0 auto 1rem auto;
 	border: solid 1px #e03344;
 	color: #e03344;
@@ -179,13 +192,8 @@ footer{
 .content-container .about-us{
 	margin: 0 auto;
 }
-.content-container .about-us > img{
-	display: block;
-	width: 80%;
-	margin: 0.5rem auto;
-}
 .content-container .about-us p{
-	width: 90%;
+	width: 100%;
 	text-indent: 2rem;
 	font-size: 1rem;
 	margin: 0 auto 0 auto;
@@ -201,7 +209,6 @@ footer{
 	justify-content: space-around;
 }
 .content-container .about-us .details-small-list li{
-	width: 400px;
 	margin: 0 auto;
 }
 .content-container .about-us .details-small-list li img{
@@ -210,7 +217,7 @@ footer{
 	display: block;
 }
 .content-container .about-us .details-small-list li p{
-	width: 75%;
+	width: 90%;
 }
 
 /* classic-gourmet */
@@ -221,7 +228,7 @@ footer{
 }
 .classic-gourmet-container .classic-gourmet{
 	width: 100%;
-	margin: 20px auto;
+	margin: 1.5rem auto;
 }
 .classic-gourmet-container .classic-gourmet > img{
 	display: block;
@@ -251,23 +258,19 @@ footer{
 	background-color: rgba(0,0,0,0.5);
 }
 .classic-gourmet-container .classic-gourmet .classic-gourmet-banner{
-	width: 100%;
-	height: 13.75rem;
-	margin: 3rem auto 0 auto;
+	display: none;
 }
-.classic-gourmet-container .classic-gourmet .classic-gourmet-banner img{
-	display: block;
-	margin: 0 auto;
-	padding: 1rem 0;
+.classic-gourmet-container .classic-gourmet .classic-gourmet-banner-phone{
+
 }
 .swiper-img-box{
-	width: 6rem !important;
-	height: 8rem !important;
-	margin: 2rem;
+	width: 100% !important;
+	height: 200px !important;
+	margin: 2rem auto 0 auto;
 	overflow: hidden;
 }
 .swiper-img{
-	width: 2rem;
+	width: 100%;
 }
 
 /* importantActivities */
@@ -281,40 +284,33 @@ footer{
 }
 .importantActivities-container > ul{
 	display: flex;
-	flex-wrap: nowrap;
+	flex-wrap: wrap;
 	justify-content: space-between;
 	margin: 1rem auto;
 }
 .importantActivities-container > ul li{
-	overflow: hidden;
-	width: 80%;
+	width: 100%;
 	border: solid 1px #CCCCCC;
-	height: 214px;
-	position: relative;
 	margin: 1rem auto;
 }
-.importantActivities-container > ul li:nth-of-type(2),
-.importantActivities-container > ul li:nth-of-type(5){
-	margin: 30px 15px;
-}
 .importantActivities-container > ul li img{
-	width: 100%;
-	position: absolute;
-	z-index: 5;
+	display: none;
 }
 .importantActivities-container > ul li .bg-layer{
 	transition: all 0.3s;
 	background-color: rgba(255,255,255,1);
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	padding: 40px 60px 40px 60px;
+	width: 80%;
+	margin: 1.5rem auto;
 	z-index: 100;
 	color: black;
 }
-.importantActivities-container > ul li .bg-layer p{
-	height: 60px;
-	width: 73%;
+.importantActivities-container > ul li .bg-layer > p{
+	height: 4rem;
+	overflow: hidden;
+	width: 100%;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
 }
 .importantActivities-container > ul li .bg-layer:hover{
 	transition: all 0.3s;
@@ -323,43 +319,40 @@ footer{
 }
 .importantActivities-container > ul li .bg-layer .date-box{
 	overflow: hidden;
-	margin-top: 50px;
+	margin-top: 1rem;
 }
 .importantActivities-container > ul li .bg-layer .date-box p:first-child{
 	float: left;
-	width: 50%;
+	width: 60%;
 }
 .importantActivities-container > ul li .bg-layer .date-box p:last-child{
 	float: right;
-	margin-right: 14%;
-	width: 20%;
+	width: 2rem;
 }
 
-/* 关于我们 about */
+/* 温鲜简介 about */
 /* 餐厅简介 */
 .about-content-container{
-	margin: 50px auto;
+	margin: 2rem auto;
 }
 .about-content-container .restaurant-story{
-	margin: 40px auto 50px auto;
+	margin: 2rem auto 2.5rem auto;
 	overflow: hidden;
-}
-.about-content-container .restaurant-story ul{
-	overflow: hidden;
-}
-.about-content-container .restaurant-story ul li{
-	float: left;
 }
 .about-content-container .restaurant-story ul li:last-child{
-	margin-left: 60px;
-	width: 620px;
+	width: 100%;
+	margin-top: 2rem;
+}
+.about-content-container .restaurant-story ul li:last-child h5,
+.about-content-container .restaurant-story ul li:last-child h3{
+	text-align: center;
 }
 .about-content-container .restaurant-story ul li img{
-	width: 520px;
-	height: 470px;
+	width: 51.5rem;
+	height: 33rem;
 }
 .about-content-container .restaurant-story ul li p{
-	margin-top: 30px;
+	margin-top: 1rem;
 	color: #999999;
 }
 /* 品牌故事 */
@@ -368,107 +361,99 @@ footer{
 	text-align: center;
 }
 .about-content-container .brand-story > ul{
-	overflow: hidden;
-	margin-top: 30px;
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 1rem;
 }
 .about-content-container .brand-story > ul li{
-	float: left;
-	position: relative;
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
 }
 .about-content-container .brand-story > ul li > div{
-	width: 400px;
-	height: 265px;
+	width: 100%;
+	margin-top: -0.4rem;
 }
 .about-content-container .brand-story > ul li > div > img{
 	width: 100%;
 }
-.about-content-container .brand-story > ul li:nth-of-type(2) > div > img{
-	height: 263px;
-}
 .about-content-container .brand-story > ul li > div.story-box{
 	background-color: #fff;
-	height: 265px;
+	height: 10rem;
 }
 .about-content-container .brand-story > ul li:first-child > div.story-box{
 	background-color: #e03344;
-	width: 400px;
 	color: white;
-	position: absolute;
+	display: inline-block;
 }
 .about-content-container .brand-story > ul li > div.story-box p{
-	margin-left: 40px;
+	margin-left: 1.5rem;
 }
 .about-content-container .brand-story > ul li div .tit{
-	font-size: 32px;
-	margin-top: 70px;
+	font-size: 2rem;
+	margin-top: 1rem;
 }
 .about-content-container .brand-story > ul li div .content{
-	margin-top:30px;
+	margin: 1rem auto;
+	width: 89%;
 }
 .about-content-container .brand-story > ul li:nth-of-type(2) > div.story-box,
 .about-content-container .brand-story > ul li:nth-of-type(3) > div.story-box{
+	width: 99.5%;
+	order: 2;
 	border: solid 1px #cbcccc;
-	width: 398px;
 }
 .about-content-container .brand-story > ul li:nth-of-type(3) > div.story-box{
-	height: 263px;
+	height: 10rem;
 }
 .about-content-container .brand-story > ul li > div.sanjiaoxing{
-	width:0;
-    height:0;
-    border-width: 0 8px 15px;
-    border-style: solid;
-    border-color:transparent transparent #e03344;/*透明 透明  灰*/
-    margin:40px auto;
-    position:absolute;
-    left: 195px;
-    top: 212px;
-    z-index: 100;
+	display: none;
 }
 .about-content-container .bottom-jt-box img{
 	display: block;
-	margin: 30px auto;
+	margin: 2rem auto;
 }
 /* 习俗 */
 .local-custom-box{
 	width: 100%;
 	background-color: #e03344;
-	height: 600px;
 }
 .local-custom-box .local-custom{
-	width: 1200px;
-	margin: 0 auto;
-	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
 }
 .local-custom-box .sign-container{
-	position: absolute;
-	top: 52px;
+	width: 5%;
+	position: relative;
+	top: 2rem;
 }
 .local-custom-box .sign-container .vertical-line{
 	width: 1px;
 	background-color: white;
-	height: 440px;
-	left: 16px;
+	height: 90%;
+	left: 1rem;
 	position: absolute;
 }
 .local-custom-box .sign-container .first-sign{
-	width: 26px;
-	height: 26px;
+	width: 1.8rem;
+	height: 1.8rem;
 	border-radius: 100px;
 	background-color: white;
 	border: solid 4px #e03344;
 	position: absolute;
 }
 .local-custom-box .sign-container .first-sign > div{
-	width: 20px;
-	height: 20px;
+	width: 1.5rem;
+	height: 1.5rem;
 	border-radius: 100px;
 	background-color: #e03344;
 	margin: 3px auto;
 }
 .local-custom-box .sign-container .garden{
-	width: 14px;
-	height: 14px;
+	width: 1rem;
+	height: 1rem;
 	border-radius: 100px;
 	background-color: white;
 	border: solid 4px #e03344;
@@ -476,143 +461,143 @@ footer{
 	left: 5.5px;
 }
 .local-custom-box .sign-container .second-sign{
-	top: 100px;
+	top: 6.25rem;
 }
 .local-custom-box .sign-container .third-sign{
-	top: 205px;
+	top: 12.8rem;
 }
 .local-custom-box .sign-container .fourth-sign{
-	top: 310px;
+	top: 19.4rem;
 }
 .local-custom-box .sign-container .fifth-sign{
-	top: 425px;
+	top: 28.6rem;
 }
 .local-custom-box .text-container{
-	width: 630px;
+	width: 80%;
 	color: white;
-	position: absolute;
-	top: 50px;
-	left: 70px;
+	margin-top: 2rem;
+	left: 5rem;
 }
 .local-custom-box .text-container h4{
-	font-size: 26px;
+	font-size: 1.5rem;
 	font-weight: normal;
 }
 .local-custom-box .text-container p{
-	margin-top: 40px;
+	margin-top: 1rem;
 }
 .local-custom-box .img-container{
-	position: absolute;
-	top: 60px;
-	right: 0;
+	margin: 1.5rem auto 1rem auto;
+	width: 90%;
+}
+.local-custom-box .img-container img{
+	width: 100%;
 }
 
 /* information */
 .information-list-container{
-	margin: 0 auto 30px auto;
-	overflow: hidden;
-}
-.information-title-box{
-	display: flex;
-	justify-content: center;
-	margin: 40px auto 20px auto;
+	width: 90%;
+	margin: 0 auto 2rem auto;
 }
 .information-list-box{
 	display: flex;
-	justify-content: flex-start;
-	margin-top: 40px;
+	justify-content: space-between;
+	width: 100%;
+	margin-top: 2rem;
 }
 .information-list-box h4{
-	font-size: 28px;
-	font-weight: normal;
+	font-size: 1.2rem;
 }
 .information-list-container .contents{
 	display: flex;
 	justify-content: flex-start;
 	flex-direction: column;
+	align-content: flex-start;
 	margin-left: 5%;
-	position: relative;
-	width: 60%;
-	height: 220px;
+	width: 55%;
 }
 .information-list-container .information-detail-btn{
-	text-align: left;
-	margin: 20px auto 0 auto;
-	position: absolute;
-	bottom: 10px;
+	width: 40%;
+	margin: 0.2rem 0 0;
+}
+.information-list-container .information-detail-btn a{
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+	font-size: 1rem;
+	color: white;
+	background-color: #e03344;
+	padding: 0 0.3rem;
+	border: solid 1px #e03344;
+	line-height: 2rem;
+	text-align: center;
 }
 .information-list-container .information-list-box .imgs{
-	width: 390px;
-	height: 220px;
+	overflow: hidden;
+	width: 40%;
+	height: 9rem;
 }
 .information-list-container .information-list-box .imgs img{
-	width: 100%;
+	width: auto;
 	height: 100%;
 }
 .information-list-container .contents .content-text{
 	color: #1a0000;
 	width: 100%;
-	margin-top: 26px;
+	margin-top: 0.5rem;
+	font-size: 1rem;
 	overflow:hidden; 
 	text-overflow:ellipsis;
 	display:-webkit-box; 
 	-webkit-box-orient:vertical;
-	-webkit-line-clamp:3;
+	-webkit-line-clamp:2;
 }
 .information-list-container .contents .information-date{
 	color: #4d4d4d;
-	margin-top: 10px;
-	position: absolute;
-	bottom: 50px;
+	margin-top: 0.3rem;
+	bottom: 3.5rem;
+	font-size: 0.8rem;
 }
 .content-container .block{
 	text-align: center;
-	margin: 50px auto 30px auto;
+	margin: 3.5rem auto 2rem auto;
 }
 
 /* menu */
 .menu-content-box{
-	margin: 30px auto;
+	margin: 2rem auto;
 }
 .menu-content-box ul{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: flex-start;
-	margin: 40px auto 0 auto;
+	margin: 1rem auto 0 auto;
 }
 .menu-content-box ul li{
-	margin-top: 40px;
+	margin-top: 2rem;
+	width: 46%;
+}
+.menu-content-box ul li:nth-of-type(even){
+	margin-left: 8%;
 }
 .menu-content-box ul li .imgs-box{
 	overflow: hidden;
-	height: 215px;
-	width: 360px;
+	width: 100%;
+	height: 6rem;
 }
 .menu-content-box ul li img{
 	width: 100%;
-}
-.menu-content-box ul li:nth-of-type(2),
-.menu-content-box ul li:nth-of-type(5),
-.menu-content-box ul li:nth-of-type(8),
-.menu-content-box ul li:nth-of-type(11){
-	margin: 40px 60px;
+	display: block;
 }
 .menu-content-box ul li > a > p{
-	height: 68px;
-	line-height: 68px;
-	width: 358px;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	width: 98.5%;
 	text-align: center;
 	border: solid 1px #e03344;
 	color: #e03344;
 	background-color: white;
 	z-index: 1000;
 	position: relative;
-	transition: all 0.3s;
-}
-.menu-content-box ul li > a > p:hover{
-	transition: all 0.3s;
-	color: white;
-	background-color: #e03344;
 }
 .menu-small-nav{
 	display: flex;
@@ -623,15 +608,9 @@ footer{
 }
 .tabClass{
 	border: solid 1px #e03344;
-	padding: 6px 30px;
-	margin: 30px 20px 0 20px;
+	padding: 6px 2rem;
+	margin: 2rem 1.5rem 0 1.5rem;
 	color: #e03344;
-	transition: all 0.3s;
-}
-.tabClass:hover{
-	border: solid 1px #e03344;
-	color: #fff;
-	background-color: #e03344;
 	transition: all 0.3s;
 }
 .menu-small-nav a:last-child{
@@ -646,59 +625,53 @@ footer{
 
 /* ContactUs */
 .contact-us-content{
-	margin: 80px auto;
-	overflow: hidden;
+	margin: 1rem auto;
 }
 .contact-us-content ul{
-	width: 400px;
-	float: left;
-	margin: 230px 0 0 100px;
+	width: 100%;
+	margin: 1rem 0;
 }
 #map-container{
-	width: 660px;
-	height: 400px;
-	float: left;
+	width: 100%;
+	height: 30rem;
 }
 .contact-us-content ul li{
 	font-weight:bold;
-	font-size:16px;
-	line-height: 30px;
+	line-height: 2rem;
 }
 
 /* 菜品详情页面 */
 .details-container{
 	background-color: #f5f5f5;
 	display: flex;
+	flex-wrap: wrap;
 }
 .details-container .details-left-content{
-	width: 75%;
-	margin: 0 auto 60px auto;
+	width: 100%;
+	margin: 0 auto 1rem auto;
 }
 .details-container .details-right-content{
-	margin-top: 1px; 
 	background-color: white;
-	width: 25%;
+	width: 100%;
 }
 .details-big-img-box{
-	width: 1200px;
-	height: 730px;
-	margin: auto;
+	width: 90%;
+	margin: 0 auto;
 	overflow: hidden;
 }
 .details-big-img-box img{
 	width: 100%;
 }
 .details-right-content .text-content{
-	padding: 0 50px;
-	margin: 110px auto 30px auto;
-	/*height: 700px;*/
+	width: 90%;
+	margin: 2rem auto;
 }
 .details-right-content h4{
-	font-size: 20px;
-	margin: 40px auto 20px auto;
+	font-size: 1.5rem;
+	margin: 2.5rem auto 1.5rem auto;
 }
 .introduction-of-dishes{
-	margin: 20px auto;
+	margin: 1.5rem auto;
 }
 .details-right-content hr{
 	border-top: solid 1px #e6e6e6;
@@ -709,8 +682,8 @@ footer{
 }
 .details-right-content .menu-small-nav a{
 	border: solid 1px #e03344;
-	padding: 4px 20px;
-	margin: 20px 0 0 0;
+	padding: 0.2rem 1.2rem;
+	margin: 1.2rem 0 0 0;
 	color: #e03344;
 	transition: all 0.3s;
 }
@@ -720,22 +693,23 @@ footer{
 	flex-wrap: wrap;
 }
 .recommend-menu li{
-	width: 45%;
-	margin-top: 30px;
+	width: 46%;
+	margin-top: 2rem;
 }
 .recommend-menu li:nth-of-type(even){
-	margin-left: 10%;
+	margin-left: 8%;
 }
 .recommend-menu li div{
-	height: 120px;
+	height: 6rem;
+	width: 100%;
 	overflow: hidden;
 }
 .recommend-menu li img{
-	height: 100%;
+	width: 100%;
 }
 .recommend-menu li > a > p{
-	height: 40px;
-	line-height: 40px;
+	height: 2.5rem;
+	line-height: 2.5rem;
 	width: 98.5%;
 	text-align: center;
 	border: solid 1px #e03344;
@@ -750,24 +724,26 @@ footer{
 
 /* 重要活动详情页 */
 .active-details-content{
-	width: 1000px;
+	width: 90%;
 	margin: 0 auto;
 }
 .active-details-content .title,
 .active-details-content .date{
 	text-align: center;
 	color: #000;
-	margin-bottom: 10px;
+	margin-bottom: 0.7rem;
 }
 .active-details-content img{
-	max-width: 700px;
+	max-width: 100%;
 	display: block;
-	margin: 30px auto;
+	margin: 1rem auto;
 }
 .active-details-content > div > p{
-	margin-bottom: 30px;
+	margin-bottom: 2rem;
 }
-
+.active-details-content div span{
+	font-size: 1rem !important;
+}
 
 
 

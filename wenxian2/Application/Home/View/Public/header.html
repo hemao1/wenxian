@@ -52,7 +52,7 @@
 	</div>
 </header>
 <div class="content-container" id="allDocument">
-	<div class="nav-container width1200" id="index-nav">
+	<div class="nav-container" id="index-nav">
 		<div class="nav">
 			<a v-for="(nav,index) in navs" :key="index" :href="'__URL__/' + nav.href" v-html="nav.title"></a>
 		</div>
@@ -67,7 +67,7 @@
 					title : '网站首页',
 					href : 'index'
 				},{
-					title : '关于我们',
+					title : '温鲜简介',
 					href : 'about'
 				},{
 					title : '美食资讯',

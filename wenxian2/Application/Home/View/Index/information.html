@@ -7,23 +7,23 @@
 				<el-breadcrumb-item>美食资讯</el-breadcrumb-item>
 			</el-breadcrumb>
 		</div>
-		<div class="information-title-box">
+		<div class="unified-title-img">
 			<img src="__PUBLIC__/img/information-title.png">
 		</div>
 		<div class="information-list-container width1200">
 			<div class="information-list-box" v-for="(informationItem,index) in informationItems" v-if='index < 6' :key="informationItem.id">
-					<div class="imgs">
-						<img :src="'__PUBLIC__/img/' + informationItem.imgs">
-					</div>
-					<div class="contents">
-						<h4 v-text="informationItem.title"></h4>
-						<p class="content-text" v-text="informationItem.content"></p>
-						<p class="information-date" v-text="informationItem.time"></p>
-						<div class="more-btn-box information-detail-btn width1200">
-							<a :href="'__URL__/information-details?id=' + informationItem.id">查看详情</a>
-						</div>
+				<div class="imgs">
+					<img :src="'__PUBLIC__/img/' + informationItem.imgs">
+				</div>
+				<div class="contents">
+					<h4 v-text="informationItem.title"></h4>
+					<p class="content-text" v-text="informationItem.content"></p>
+					<p class="information-date" v-text="informationItem.time"></p>
+					<div class="more-btn-box information-detail-btn width1200">
+						<a :href="'__URL__/information-details?id=' + informationItem.id">查看详情</a>
 					</div>
 				</div>
+			</div>
 		</div>
 		<!-- 分页 -->
 		<!-- <div class="block">
