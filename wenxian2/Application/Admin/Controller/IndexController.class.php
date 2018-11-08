@@ -133,6 +133,12 @@ class IndexController extends Controller {
 
       $data = M('activity')->select();
 
+      foreach ($data as $key => $value) {
+
+           $a=substr($value['imgs_title'],9) ;
+
+           $data[$key]['img'] = $a;               
+      }
 
       $this->assign('data', $data);
 

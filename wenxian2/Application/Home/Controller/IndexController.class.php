@@ -247,12 +247,12 @@ class IndexController extends Controller {
 
         $data =M('activity')->order('sort desc')->select();
         
-         if($data)
-         {
+        if($data)
+        {
             $code = 200;
             $message = 'success';
 
-         }
+        }
         else
         {
 

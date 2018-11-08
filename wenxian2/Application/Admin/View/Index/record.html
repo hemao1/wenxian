@@ -49,6 +49,10 @@
 
 						width:800px;
 				}
+				.imgs_title img{
+						
+						width: 300px;	
+				}
 
 		</style>
 	</head>
@@ -194,13 +198,16 @@
 														<td><?php echo $value['title'] ?></td>
 														<td><?php echo $value['time']?></td>
 														<td class="content"><?php echo $value['content']?></td>
-														<td><img src="echo substr("<?php echo $value['imgs_title']?>",3);" ></td>
+														<td class="imgs_title"><img src="__PUBLIC__/<?php echo $value['img']?>" ></td>
 														<td>	
-
-														<?php echo $value['hots']?>
+														<?php if($value['hots'] == '0'){ ?>
+															普通活动
+														<?php } else  ?>
+														    重要活动
+														<?php } ?>
 														</td>
 														</tr>
-														 <?php } ?>																
+																													
 												</tbody>
 											</table>
 										</div><!-- /.table-responsive -->
