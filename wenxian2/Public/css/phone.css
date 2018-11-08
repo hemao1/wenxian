@@ -261,7 +261,9 @@ footer{
 	display: none;
 }
 .classic-gourmet-container .classic-gourmet .classic-gourmet-banner-phone{
-
+	width: 100%;
+	height: 16rem;
+	margin: 0 auto;
 }
 .swiper-img-box{
 	width: 100% !important;
@@ -350,6 +352,7 @@ footer{
 .about-content-container .restaurant-story ul li img{
 	width: 51.5rem;
 	height: 33rem;
+	margin-left: -12rem;
 }
 .about-content-container .restaurant-story ul li p{
 	margin-top: 1rem;
