@@ -47,11 +47,11 @@
 				}
 				.content {
 
-						width:800px;
+						width:700px;
 				}
 				.imgs_title img{
 						
-						width: 300px;	
+						width: 200px;	
 				}
 
 		</style>
@@ -196,18 +196,18 @@
 														  	<a href="__URL__/record_del?id=<?php echo $value['id']?>">删除</a>	
 														  </td>
 														<td><?php echo $value['title'] ?></td>
-														<td><?php echo $value['time']?></td>
+														<td><?php echo $value['time']?> </td>
 														<td class="content"><?php echo $value['content']?></td>
 														<td class="imgs_title"><img src="__PUBLIC__/<?php echo $value['img']?>" ></td>
 														<td>	
-														<?php if($value['hots'] == '0'){ ?>
-															普通活动
-														<?php } else  ?>
-														    重要活动
-														<?php } ?>
-														</td>
+										  				<?php if($value['hots'] == 0) { ?>
+										  				   普通活动
+										  				<?php } else { ?>
+										  				  <font color="red"><b>重要活动</b></font>
+										  				<?php }?>
+										  			    </td>
 														</tr>
-																													
+														<?php }?>															
 												</tbody>
 											</table>
 										</div><!-- /.table-responsive -->

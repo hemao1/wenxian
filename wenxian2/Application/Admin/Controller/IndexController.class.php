@@ -82,16 +82,16 @@ class IndexController extends Controller {
 
            $username = $_POST['username'];
 
-           $password   = $_POST['pwd'];
+           $password   = md5($_POST['pwd']);
 
            if($username)
            {
            
              $data =M('user')->where(array('username'=>$username))->find();
          
-            $name = $data['username'];
+             $name = $data['username'];
 
-            $pwd  = $data['pwd'];
+             $pwd  = $data['pwd'];
 
             if($username == $name && $password ==$pwd)
             {
@@ -131,7 +131,7 @@ class IndexController extends Controller {
     public function record()
     {
 
-      $data = M('activity')->select();
+      $data = M('activity')->order('id desc')->select();
 
       foreach ($data as $key => $value) {
 
@@ -142,8 +142,18 @@ class IndexController extends Controller {
 
       $this->assign('data', $data);
 
-      $this->display();
+      if(empty($_SESSION['name']))
+        {
 
+          session('name',null);
+          $this->success('请先登录', 'login');
+
+        }
+        else
+        {
+
+         $this->display();
+        }
     }
 
   //活动信息删除
